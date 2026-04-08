@@ -1,0 +1,2103 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrefour Cult' | Actualités Culture, Jeux Vidéo, Livres, Musique & Séries</title>
+    <meta name="description" content="Découvrez Carrefour Cult', votre espace culture : actualités jeux video, livres, musique, films et séries. Profitez de réductions exclusives sur l'application Carrefour.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Carrefour Cult' | Votre Espace Culture">
+    <meta property="og:description" content="Jeux video, livres, musique, films et séries : toute l'actualité culturelle sur Carrefour Cult'.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <link rel="canonical" href="https://www.carrefour.fr/cult">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700;1,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ===== CSS VARIABLES & THEME ===== */
+        :root {
+            --bg: #ffffff;
+            --bg-alt: #f8f9fa;
+            --bg-card: #f9f9f9;
+            --text: #1a1a1a;
+            --text-secondary: #666666;
+            --text-muted: #888888;
+            --border: #eeeeee;
+            --border-tag: #e0e0e0;
+            --blue: #0058a3;
+            --blue-dark: #004080;
+            --purple: #5b4dff;
+            --shadow: rgba(0,0,0,0.08);
+            --header-bg: #ffffff;
+            --hover-card: #eef1ff;
+            --hero-bg: #f0f4ff;
+        }
+        [data-theme="dark"] {
+            --bg: #121212;
+            --bg-alt: #1e1e1e;
+            --bg-card: #252525;
+            --text: #e8e8e8;
+            --text-secondary: #aaaaaa;
+            --text-muted: #777777;
+            --border: #333333;
+            --border-tag: #444444;
+            --shadow: rgba(0,0,0,0.3);
+            --header-bg: #1a1a1a;
+            --hover-card: #2a2a3a;
+            --hero-bg: #1a1a2e;
+        }
+
+        /* ===== RESET & BASE ===== */
+        html { scroll-behavior: smooth; }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-alt);
+            color: var(--text);
+            line-height: 1.6;
+            transition: background 0.3s, color 0.3s;
+        }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        /* ===== ANIMATIONS ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* ===== LAYOUT ===== */
+        .page-wrapper {
+            max-width: 1512px;
+            margin: 0 auto;
+            background: var(--bg);
+            transition: background 0.3s;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 40px;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: var(--header-bg);
+            z-index: 100;
+            transition: background 0.3s, border-color 0.3s;
+            backdrop-filter: blur(12px);
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        .logo { display: flex; align-items: center; }
+        .logo-img { height: 36px; width: auto; transition: opacity 0.3s; }
+        .logo-img:hover { opacity: 0.8; }
+        [data-theme="dark"] .logo-img { filter: brightness(0) invert(1); }
+        .search-bar {
+            display: flex;
+            align-items: center;
+            border: 1.5px solid var(--border-tag);
+            border-radius: 8px;
+            padding: 8px 16px;
+            width: 320px;
+            gap: 8px;
+            background: var(--bg);
+            transition: border-color 0.3s, background 0.3s;
+        }
+        .search-bar:focus-within {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(0,88,163,0.12);
+        }
+        .search-bar input {
+            border: none;
+            outline: none;
+            font-size: 14px;
+            flex: 1;
+            font-family: inherit;
+            color: var(--text-secondary);
+            background: transparent;
+        }
+        .search-bar svg { width: 18px; height: 18px; color: var(--text-muted); }
+
+        /* Dark mode toggle */
+        .theme-toggle {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            border: 1.5px solid var(--border-tag);
+            background: var(--bg);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            flex-shrink: 0;
+        }
+        .theme-toggle:hover {
+            border-color: var(--blue);
+            background: var(--bg-alt);
+        }
+        .theme-toggle svg { width: 20px; height: 20px; color: var(--text); transition: color 0.3s; }
+        .theme-toggle .icon-moon { display: block; }
+        .theme-toggle .icon-sun { display: none; }
+        [data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+        [data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+
+        /* Hamburger menu */
+        .hamburger {
+            display: none;
+            width: 44px; height: 44px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            padding: 10px;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+        /* Mobile menu overlay */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg);
+            z-index: 99;
+            padding: 80px 24px 24px;
+            flex-direction: column;
+            gap: 0;
+            overflow-y: auto;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        .mobile-menu.open {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .mobile-menu a {
+            display: flex;
+            align-items: center;
+            padding: 16px 0;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text);
+            border-bottom: 1px solid var(--border);
+            min-height: 52px;
+        }
+        .mobile-menu a:last-child { border-bottom: none; }
+        .mobile-menu .mobile-search {
+            display: flex;
+            align-items: center;
+            border: 1.5px solid var(--border-tag);
+            border-radius: 10px;
+            padding: 12px 16px;
+            gap: 10px;
+            margin-bottom: 16px;
+            background: var(--bg-card);
+        }
+        .mobile-menu .mobile-search input {
+            border: none;
+            outline: none;
+            font-size: 16px;
+            flex: 1;
+            font-family: inherit;
+            color: var(--text);
+            background: transparent;
+        }
+        .mobile-menu .mobile-search svg { width: 20px; height: 20px; color: var(--text-muted); }
+
+        /* Sticky mobile CTA */
+        .sticky-cta-mobile {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 90;
+            padding: 12px 20px;
+            padding-bottom: calc(12px + env(safe-area-inset-bottom));
+            background: var(--header-bg);
+            border-top: 1px solid var(--border);
+            backdrop-filter: blur(12px);
+        }
+        .sticky-cta-mobile a {
+            display: block;
+            text-align: center;
+            padding: 14px 24px;
+            background: var(--blue);
+            color: #fff;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 15px;
+            box-shadow: 0 2px 12px rgba(0,88,163,0.3);
+        }
+
+        /* Breadcrumb */
+        .breadcrumb-lp {
+            padding: 10px 40px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        .breadcrumb-lp a { color: var(--blue); transition: opacity 0.2s; }
+        .breadcrumb-lp a:hover { opacity: 0.7; }
+        .breadcrumb-lp span { margin: 0 6px; color: var(--border-tag); }
+        @media (max-width: 768px) { .breadcrumb-lp { padding: 8px 16px; font-size: 12px; } }
+
+        /* ===== NAVIGATION TAGS ===== */
+        .nav-tags {
+            display: flex;
+            gap: 8px;
+            padding: 14px 40px;
+            border-bottom: 1px solid var(--border);
+            flex-wrap: wrap;
+            transition: border-color 0.3s;
+        }
+        .nav-tag {
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid var(--border-tag);
+            background: var(--bg);
+            color: var(--text-secondary);
+        }
+        .nav-tag:hover, .nav-tag.active {
+            background: var(--text);
+            color: var(--bg);
+            border-color: var(--text);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            position: relative;
+            margin: 24px 40px 0;
+            border-radius: 16px;
+            overflow: hidden;
+            height: 440px;
+        }
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px 36px 32px;
+            background: linear-gradient(transparent 0%, rgba(0,0,0,0.8) 100%);
+            color: #fff;
+        }
+        .hero-tag {
+            display: inline-block;
+            padding: 5px 14px;
+            background: var(--blue);
+            color: #fff;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+        .hero-date {
+            font-size: 12px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 8px;
+            display: block;
+        }
+        .hero h1 {
+            font-size: 30px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+        .hero p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.85);
+            max-width: 680px;
+        }
+        .hero-dots {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            padding: 16px 0;
+        }
+        .hero-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--border-tag);
+            transition: background 0.3s;
+        }
+        .hero-dot.active { background: var(--text); }
+
+        /* ===== CATEGORY TABS ===== */
+        .category-tabs {
+            display: flex;
+            gap: 6px;
+            padding: 0 40px 28px;
+            flex-wrap: wrap;
+        }
+        .cat-tab {
+            padding: 8px 18px;
+            border-radius: 24px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            border: 1.5px solid var(--border-tag);
+            background: var(--bg);
+            color: var(--text-secondary);
+            transition: all 0.2s;
+        }
+        .cat-tab:hover, .cat-tab.active {
+            background: var(--blue);
+            color: #fff;
+            border-color: var(--blue);
+        }
+
+        /* ===== SECTIONS ===== */
+        .section { padding: 0 40px 48px; }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 22px;
+        }
+        .section-header h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text);
+            transition: color 0.3s;
+        }
+        .voir-tout {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--blue);
+            cursor: pointer;
+            padding: 8px 18px;
+            border: 1.5px solid var(--blue);
+            border-radius: 24px;
+            background: transparent;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .voir-tout::after {
+            content: '\2192';
+            font-size: 15px;
+            transition: transform 0.25s ease;
+        }
+        .voir-tout:hover {
+            background: var(--blue);
+            color: #fff;
+            box-shadow: 0 2px 12px rgba(0,88,163,0.2);
+        }
+        .voir-tout:hover::after {
+            transform: translateX(3px);
+        }
+
+        /* ===== ACTUALITES GRID ===== */
+        .actu-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 320px;
+            gap: 20px;
+        }
+        .article-card {
+            border-radius: 14px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        .article-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px var(--shadow);
+        }
+        .article-card-img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+        .article-card h3 {
+            font-size: 15px;
+            font-weight: 700;
+            margin: 12px 0 6px;
+            line-height: 1.3;
+            color: var(--text);
+            transition: color 0.3s;
+        }
+        .article-card p {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* ===== SIDEBAR PRODUITS ===== */
+        .sidebar-products {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .product-card {
+            display: flex;
+            gap: 14px;
+            padding: 14px;
+            border-radius: 12px;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            background: var(--bg-card);
+            align-items: flex-start;
+        }
+        .product-card:hover { background: var(--hover-card); transform: translateY(-2px); box-shadow: 0 4px 16px var(--shadow); }
+        .product-card.featured {
+            background: linear-gradient(135deg, #5b4dff 0%, #7c6fff 100%);
+            color: #fff;
+            padding: 16px;
+            border-radius: 14px;
+        }
+        .product-card.featured h4,
+        .product-card.featured .product-price { color: #fff; }
+        .product-card.featured .article-rating { color: rgba(255,255,255,0.8); }
+        .product-card.featured .article-rating .stars { color: #fbbf24; }
+        .product-card.featured .btn-cta { background: #fff; color: var(--purple); }
+        .product-img {
+            width: 64px;
+            height: 88px;
+            border-radius: 8px;
+            object-fit: cover;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        }
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            flex: 1;
+        }
+        .product-info h4 {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 2px;
+            line-height: 1.35;
+        }
+        .product-price { font-size: 13px; font-weight: 700; color: var(--text); }
+
+        /* ===== CTA BUTTONS ===== */
+        .btn-cta {
+            display: inline-block;
+            padding: 8px 20px;
+            background: var(--blue);
+            color: #fff;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-top: 6px;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(0,88,163,0.25);
+        }
+        .btn-cta:hover {
+            background: var(--blue-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(0,88,163,0.35);
+        }
+
+        /* ===== BANNER PROMO ===== */
+        .promo-banner {
+            margin: 0 40px 48px;
+            background: linear-gradient(135deg, #4a6cf7 0%, #6b5ce7 50%, #8b4ddb 100%);
+            border-radius: 16px;
+            padding: 36px 44px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #fff;
+            gap: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+        .promo-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 50%;
+        }
+        .promo-qr {
+            width: 100px;
+            height: 100px;
+            background: #fff;
+            border-radius: 10px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+            position: relative;
+        }
+        .promo-qr svg { width: 80px; height: 80px; }
+        .promo-text { position: relative; }
+        .promo-text h3 {
+            font-size: 22px;
+            font-weight: 800;
+            text-transform: uppercase;
+            line-height: 1.25;
+        }
+        .promo-cta-btn {
+            padding: 14px 32px;
+            background: #fff;
+            color: #4a6cf7;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 15px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            flex-shrink: 0;
+            position: relative;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+        .promo-cta-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+        }
+
+        /* ===== LIVRES SECTION ===== */
+        .livres-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        .livre-card {
+            display: flex;
+            gap: 14px;
+            padding: 16px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            transition: background 0.2s, transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        .livre-card:hover {
+            background: var(--hover-card);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px var(--shadow);
+        }
+        .livre-cover {
+            width: 55px;
+            height: 80px;
+            border-radius: 4px;
+            object-fit: cover;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        .livre-info h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            line-height: 1.3;
+            color: var(--text);
+        }
+        .livre-info p {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* ===== MUSIQUE SECTION ===== */
+        .musique-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .album-card {
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .album-card:hover { transform: translateY(-4px); }
+        .album-img {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 16px var(--shadow);
+        }
+        .album-card h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: var(--text);
+        }
+        .album-card p {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* ===== FINAL CTA ===== */
+        .final-cta {
+            text-align: center;
+            padding: 56px 40px;
+            background: linear-gradient(135deg, var(--blue) 0%, #0070c9 100%);
+            color: #fff;
+        }
+        .final-cta h2 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+        .final-cta p {
+            font-size: 16px;
+            margin-bottom: 28px;
+            opacity: 0.9;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .final-cta-btn {
+            display: inline-block;
+            padding: 16px 40px;
+            background: #fff;
+            color: var(--blue);
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 16px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        .final-cta-btn:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+
+        /* ===== FAQ ===== */
+        .faq-section {
+            padding: 48px 40px;
+            background: var(--bg-alt);
+            transition: background 0.3s;
+        }
+        .faq-section h2 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 28px;
+            text-align: center;
+            color: var(--text);
+        }
+        .faq-list { max-width: 800px; margin: 0 auto; }
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 18px 0;
+            transition: border-color 0.3s;
+        }
+        .faq-question {
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            color: var(--text);
+            transition: color 0.2s;
+        }
+        .faq-question:hover { color: var(--blue); }
+        .faq-question::after {
+            content: '+';
+            font-size: 22px;
+            font-weight: 300;
+            color: var(--text-muted);
+            flex-shrink: 0;
+            transition: transform 0.3s, color 0.3s;
+        }
+        .faq-item.open .faq-question::after {
+            transform: rotate(45deg);
+            color: var(--blue);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+        .faq-item.open .faq-answer {
+            max-height: 250px;
+            padding-top: 14px;
+        }
+        .faq-answer p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            padding: 32px 40px;
+            background: #111;
+            color: #fff;
+            text-align: center;
+        }
+        .footer p { font-size: 13px; color: #777; }
+        .footer a { color: #999; transition: color 0.2s; }
+        .footer a:hover { color: #fff; }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .actu-layout { grid-template-columns: 1fr 1fr; }
+            .sidebar-products { grid-column: span 2; flex-direction: row; gap: 14px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 8px; }
+            .sidebar-products::-webkit-scrollbar { display: none; }
+            .sidebar-products .product-card { min-width: 240px; flex-shrink: 0; }
+            .musique-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            /* Header: hamburger visible, search hidden */
+            .header { padding: 12px 16px; gap: 8px; }
+            .search-bar { display: none; }
+            .hamburger { display: flex; }
+            .sticky-cta-mobile { display: block; }
+
+            /* Spacing */
+            .hero { margin: 12px 16px 0; height: 300px; border-radius: 12px; }
+            .hero-overlay { padding: 24px 20px 20px; }
+            .hero h1 { font-size: 22px; }
+            .hero p { font-size: 13px; }
+            .section, .faq-section, .footer, .final-cta { padding-left: 16px; padding-right: 16px; }
+            .section-header { flex-wrap: wrap; gap: 10px; }
+            .section-header h2 { font-size: 18px; flex: 1; min-width: 0; }
+
+            /* Category tabs: horizontal scroll */
+            .category-tabs {
+                padding: 0 16px 20px;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                gap: 8px;
+            }
+            .category-tabs::-webkit-scrollbar { display: none; }
+            .cat-tab {
+                flex-shrink: 0;
+                padding: 10px 18px;
+                font-size: 14px;
+                min-height: 44px;
+            }
+
+            /* Nav tags: horizontal scroll */
+            .nav-tags {
+                padding: 12px 16px;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+            .nav-tags::-webkit-scrollbar { display: none; }
+            .nav-tag { flex-shrink: 0; padding: 8px 16px; min-height: 44px; display: flex; align-items: center; }
+
+            /* Grids */
+            .actu-layout { grid-template-columns: 1fr; gap: 20px; }
+            .sidebar-products { flex-direction: column; overflow-x: visible; grid-column: span 1; }
+            .sidebar-products .product-card { min-width: unset; max-width: unset; width: 100%; }
+            /* Force all reveal elements visible on mobile to prevent disappearing content */
+            .reveal { opacity: 1 !important; transform: translateY(0) !important; }
+            .product-info .btn-cta { font-size: 13px; padding: 10px 20px; display: block; text-align: center; margin-top: 6px; }
+            .article-rating { font-size: 12px; gap: 4px; }
+            .livres-grid { grid-template-columns: 1fr; }
+            .musique-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+
+            /* Promo banner */
+            .promo-banner { margin: 0 16px 36px; flex-direction: column; text-align: center; padding: 24px 20px; gap: 16px; }
+            .promo-text h3 { font-size: 18px; }
+
+            /* Touch targets: minimum 44px */
+            .voir-tout { padding: 8px 16px; min-height: 44px; font-size: 12px; }
+            .faq-question { min-height: 48px; padding: 4px 0; }
+            .btn-cta { padding: 12px 24px; font-size: 14px; min-height: 44px; }
+            .promo-cta-btn { padding: 14px 28px; min-height: 48px; }
+
+            /* Final CTA */
+            .final-cta { padding: 40px 20px 40px; }
+            .final-cta h2 { font-size: 22px; }
+            .final-cta p { font-size: 14px; }
+            .final-cta-btn { padding: 14px 32px; font-size: 15px; }
+
+            /* Footer: add bottom padding for sticky CTA */
+            .footer { padding-bottom: 100px; }
+        }
+        @media (max-width: 480px) {
+            .logo-img { height: 28px; }
+            .hero { height: 240px; margin: 8px 12px 0; }
+            .hero h1 { font-size: 18px; }
+            .hero p { display: none; }
+            .hero-overlay { padding: 16px 14px; }
+            .section { padding-bottom: 32px; }
+            .musique-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .album-card p { display: none; }
+            .album-img { border-radius: 8px; }
+            .article-card-img { height: 160px; }
+            .final-cta h2 { font-size: 20px; }
+            /* Sidebar products 480 */
+            .product-img { width: 50px; height: 68px; }
+            .product-info h4 { font-size: 12px; }
+            .product-price { font-size: 12px; }
+            /* Fix livre cards overflow */
+            .livre-card { padding: 12px; gap: 10px; }
+            .livre-cover { width: 45px; height: 65px; }
+            .livre-info h4 { font-size: 13px; }
+            .livre-info p { font-size: 11px; }
+            /* Social proof bar */
+            .social-proof-bar { font-size: 12px; padding: 8px 12px; }
+            /* Promo banner */
+            .promo-banner { padding: 20px 16px; margin: 0 12px 28px; }
+            .promo-text h3 { font-size: 16px; }
+            .promo-qr { width: 80px; height: 80px; }
+            .promo-cta-btn { padding: 12px 24px; font-size: 14px; }
+        }
+    /* Focus visible for keyboard nav */
+        *:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 4px; }
+        .skip-link { position: absolute; top: -100px; left: 16px; padding: 12px 24px; background: var(--blue); color: #fff; border-radius: 0 0 8px 8px; font-weight: 700; font-size: 14px; z-index: 200; transition: top 0.3s; }
+        .skip-link:focus { top: 0; }
+        .promo-ribbon { background: linear-gradient(135deg, #0058a3 0%, #0070c9 100%); color: #fff; text-align: center; padding: 10px 20px; font-size: 13px; font-weight: 600; }
+        .promo-ribbon a { color: #fff; text-decoration: underline; margin-left: 4px; }
+        .social-proof-bar { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 40px; font-size: 14px; color: var(--text-secondary); background: var(--bg-alt); border-bottom: 1px solid var(--border); text-align: center; line-height: 1.4; }
+        .social-proof-bar .stars { color: #f59e0b; flex-shrink: 0; }
+        .badge { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; position: absolute; top: 8px; left: 8px; z-index: 2; }
+        .badge-new { background: #10b981; color: #fff; }
+        .badge-bestseller { background: #f59e0b; color: #1a1a1a; }
+        .article-card, .album-card { position: relative; }
+        .article-rating { display: flex; align-items: center; gap: 6px; padding: 2px 0; font-size: 12px; color: var(--text-muted); }
+        .article-rating .stars { color: #f59e0b; flex-shrink: 0; }
+        /* Product card UX improvements */
+        .product-card .badge { position: static; display: inline-block; margin-bottom: 4px; align-self: flex-start; }
+        .product-info h4 { overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+        .product-info .btn-cta { font-size: 12px; padding: 8px 16px; margin-top: 4px; text-align: center; display: block; border-radius: 8px; }
+        @media (max-width: 768px) {
+            .promo-ribbon { font-size: 12px; padding: 8px 16px; }
+            .social-proof-bar { padding: 10px 16px; font-size: 12px; gap: 6px; flex-wrap: wrap; }
+        }
+
+        /* ===== LP LIVRES STYLES ===== */
+        .hero-hub {
+            margin: 16px 40px 32px; padding: 28px 32px;
+            background: var(--hero-bg, #f0f4ff); border-radius: 16px;
+            display: flex; align-items: center; gap: 28px;
+            transition: background 0.3s;
+        }
+        [data-theme="dark"] .hero-hub { background: #1a1a2e; }
+        .hero-hub--banner {
+            position: relative; overflow: hidden; padding: 0;
+            background: #1a1a2e; min-height: 320px;
+        }
+        .hero-hub-banner-img {
+            width: 100%; height: 320px; object-fit: cover;
+            object-position: center top; border-radius: 16px;
+        }
+        .hero-hub-overlay {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            padding: 60px 32px 28px;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+            color: #fff; border-radius: 0 0 16px 16px;
+        }
+        .hero-hub-overlay h1 { color: #fff; }
+        .hero-hub-overlay .hero-hub-subtitle { color: rgba(255,255,255,0.85); }
+        .hero-hub-overlay .hero-hub-badge { background: var(--blue); }
+        .hero-hub-img {
+            width: 100px; height: 140px; border-radius: 10px;
+            object-fit: cover; flex-shrink: 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .hero-hub-content { flex: 1; }
+        .hero-hub-badge {
+            display: inline-block; padding: 4px 12px; background: var(--blue);
+            color: #fff; border-radius: 6px; font-size: 11px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px;
+        }
+        .hero-hub h1 { font-size: 26px; font-weight: 800; line-height: 1.2; margin-bottom: 6px; }
+        .hero-hub-subtitle { font-size: 15px; color: var(--text-secondary); margin-bottom: 16px; }
+        .hero-hub-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+        .hero-hub-overlay .btn-secondary { color: #fff; border-color: rgba(255,255,255,0.5); }
+        .hero-hub-overlay .btn-secondary:hover { color: #fff; border-color: rgba(255,255,255,1); background: rgba(255,255,255,0.1); }
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 12px 24px; background: var(--blue); color: #fff;
+            border-radius: 10px; font-weight: 700; font-size: 14px;
+            transition: all 0.2s; box-shadow: 0 2px 10px rgba(0,88,163,0.25);
+        }
+        .btn-primary:hover { background: var(--blue-dark); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,88,163,0.35); }
+        .btn-secondary {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 12px 24px; background: transparent; color: var(--text);
+            border: 1.5px solid var(--border-tag); border-radius: 10px;
+            font-weight: 600; font-size: 14px; transition: all 0.2s;
+        }
+        .btn-secondary:hover { border-color: var(--blue); color: var(--blue); }
+        [data-theme="dark"] .btn-secondary:hover { color: #4a9eff; border-color: #4a9eff; }
+        .section-icon { font-size: 20px; margin-right: 8px; }
+
+        .articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .article-card-body { padding: 14px 0 0; }
+        .article-card-tag {
+            display: inline-block; padding: 4px 12px; border: 1.5px solid var(--border-tag);
+            border-radius: 6px; font-size: 11px; font-weight: 600; color: var(--text-secondary);
+            margin-bottom: 8px; transition: border-color 0.3s;
+        }
+
+        .chroniques-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .chronique-card {
+            border-radius: 14px; overflow: hidden; cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s; background: var(--bg-card);
+        }
+        .chronique-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px var(--shadow); }
+        .chronique-card-img { width: 100%; height: 240px; object-fit: cover; }
+        .chronique-card-body { padding: 16px; }
+        .chronique-card h3 { font-size: 16px; font-weight: 700; line-height: 1.3; margin-bottom: 4px; color: var(--text); }
+        .chronique-card .author { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+        .chronique-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+
+        .bd-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .bd-card {
+            border-radius: 14px; overflow: hidden; cursor: pointer;
+            position: relative; transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .bd-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px var(--shadow); }
+        .bd-card-img { width: 100%; height: 280px; object-fit: cover; }
+        .bd-card-body { padding: 14px 0 0; }
+        .bd-badge {
+            display: inline-block; padding: 4px 12px; border-radius: 6px;
+            font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px;
+        }
+        .bd-badge-manga { background: #10b981; color: #fff; }
+        .bd-badge-bd { background: var(--purple); color: #fff; }
+        .bd-card h3 { font-size: 15px; font-weight: 700; margin: 8px 0 4px; color: var(--text); line-height: 1.3; }
+        .bd-card p { font-size: 12px; color: var(--text-muted); }
+
+        .ventes-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .vente-card {
+            background: var(--bg-card); border-radius: 14px; overflow: hidden;
+            cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .vente-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px var(--shadow); }
+        .vente-card-img { width: 100%; height: 220px; object-fit: cover; }
+        .vente-card-body { padding: 14px 16px 16px; }
+        .vente-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 2px; color: var(--text); line-height: 1.3; }
+        .vente-card .vente-author { font-size: 12px; color: var(--text-muted); margin-bottom: 8px; }
+        .vente-card .vente-price { font-size: 18px; font-weight: 800; color: var(--blue); margin-bottom: 10px; }
+        .btn-acheter {
+            display: flex; align-items: center; justify-content: center; gap: 6px;
+            width: 100%; padding: 12px 20px; background: var(--blue); color: #fff;
+            border-radius: 10px; font-weight: 700; font-size: 14px;
+            transition: all 0.2s; box-shadow: 0 2px 8px rgba(0,88,163,0.2);
+        }
+        .btn-acheter:hover { background: var(--blue-dark); transform: translateY(-1px); }
+
+        .newsletter {
+            margin: 0 40px 48px; padding: 32px 36px;
+            background: linear-gradient(135deg, #0058a3 0%, #0070c9 100%);
+            border-radius: 16px; display: flex; align-items: center;
+            justify-content: space-between; gap: 24px; color: #fff;
+        }
+        .newsletter-text { flex: 1; }
+        .newsletter-text h3 { font-size: 20px; font-weight: 800; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+        .newsletter-text p { font-size: 14px; opacity: 0.9; }
+        .newsletter-form { display: flex; gap: 10px; flex-shrink: 0; }
+        .newsletter-form input {
+            padding: 12px 18px; border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 10px; font-size: 14px; font-family: inherit;
+            background: rgba(255,255,255,0.15); color: #fff; width: 260px;
+        }
+        .newsletter-form input::placeholder { color: rgba(255,255,255,0.6); }
+        .newsletter-form input:focus { outline: none; border-color: #fff; background: rgba(255,255,255,0.25); }
+        .newsletter-form button {
+            padding: 12px 24px; background: #fff; color: var(--blue);
+            border: none; border-radius: 10px; font-weight: 800;
+            font-size: 14px; cursor: pointer; transition: all 0.2s; font-family: inherit;
+        }
+        .newsletter-form button:hover { transform: scale(1.03); box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
+
+        /* ===== LP FILMS STYLES ===== */
+        .header-nav { display: flex; gap: 4px; }
+        .header-nav a {
+            padding: 8px 16px; border-radius: 8px; font-size: 14px;
+            font-weight: 500; color: var(--text-secondary); transition: all 0.2s;
+        }
+        .header-nav a:hover { color: var(--text); background: var(--bg-alt); }
+        .header-nav a.active { color: var(--blue); font-weight: 700; background: var(--blue-light, #e8f2fc); }
+        [data-theme="dark"] .header-nav a.active { background: #1a2a44; }
+
+        .page-header { padding: 8px 40px 24px; }
+        .page-header-badges { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+        .badge-cat {
+            display: inline-block; padding: 4px 12px; border-radius: 6px;
+            font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px;
+        }
+        .badge-cinema { background: var(--blue); color: #fff; }
+        .badge-selection { background: #f59e0b; color: #1a1a1a; }
+        .page-header h1, .page-header h2 { font-size: 32px; font-weight: 800; line-height: 1.2; margin-bottom: 8px; }
+        .page-header-meta { font-size: 13px; color: var(--text-muted); margin-bottom: 16px; }
+        .page-header-intro { font-size: 16px; line-height: 1.7; color: var(--text-secondary); max-width: 720px; }
+        .page-header-intro strong { color: var(--text); font-weight: 700; }
+
+        .films-content-layout {
+            display: grid; grid-template-columns: 1fr 320px;
+            gap: 40px; padding: 0 40px 48px; align-items: start;
+        }
+        .films-main-content { display: flex; flex-direction: column; gap: 32px; }
+
+        .film-card {
+            display: flex; gap: 24px; padding: 24px;
+            background: var(--bg-card); border-radius: 16px;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+        .film-card:hover { box-shadow: 0 12px 32px var(--shadow); }
+        .film-poster {
+            width: 140px; height: 200px; border-radius: 10px;
+            object-fit: cover; flex-shrink: 0; box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .film-info { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+        .film-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 2px; }
+        .film-tag {
+            padding: 3px 10px; border-radius: 5px; font-size: 11px; font-weight: 600;
+            background: var(--border-tag); color: var(--text);
+        }
+        .film-tag-sf { background: #3b82f6; color: #fff; }
+        .film-tag-aventure { background: #10b981; color: #fff; }
+        .film-tag-drame { background: #8b5cf6; color: #fff; }
+        .film-tag-biopic { background: #f59e0b; color: #1a1a1a; }
+        .film-tag-thriller { background: #ef4444; color: #fff; }
+        .film-tag-sport { background: #ec4899; color: #fff; }
+        .film-info h2 { font-size: 20px; font-weight: 800; line-height: 1.25; margin: 0; }
+        .film-meta { font-size: 13px; color: var(--text-muted); }
+        .film-date { font-size: 13px; font-weight: 700; color: #ef4444; }
+        .film-date.coming { color: #f59e0b; }
+        .film-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin: 4px 0 8px; }
+        .btn-cine {
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            padding: 14px 28px; background: linear-gradient(135deg, #0058a3 0%, #0070c9 100%);
+            color: #fff; border-radius: 10px; font-weight: 700; font-size: 14px;
+            transition: all 0.2s; box-shadow: 0 2px 12px rgba(0,88,163,0.25); margin-top: auto;
+        }
+        .btn-cine:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,88,163,0.35); }
+
+        .films-sidebar { display: flex; flex-direction: column; gap: 24px; position: sticky; top: 80px; }
+        .sidebar-card { background: var(--bg-card); border-radius: 14px; padding: 20px; transition: background 0.3s; }
+        .sidebar-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+        .sidebar-card h3 .icon { font-size: 18px; }
+        .dvd-item {
+            padding: 10px 0; border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .dvd-item:last-child { border-bottom: none; }
+        .dvd-item-title { font-size: 14px; font-weight: 600; color: var(--text); }
+        .dvd-item-format { font-size: 12px; color: var(--text-muted); }
+        .dvd-item-price { font-size: 14px; font-weight: 700; color: var(--blue); white-space: nowrap; }
+        .concours-content { text-align: center; }
+        .concours-icons { font-size: 32px; margin-bottom: 10px; display: flex; justify-content: center; gap: 12px; }
+        .concours-content p { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+        .concours-content .concours-detail { font-size: 13px; color: var(--text-muted); font-weight: 400; }
+        .btn-concours {
+            display: block; width: 100%; padding: 12px; margin-top: 14px;
+            background: #f59e0b; color: #1a1a1a; border-radius: 10px;
+            font-weight: 700; font-size: 14px; text-align: center; transition: all 0.2s;
+        }
+        .btn-concours:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(245,158,11,0.3); }
+        .newsletter-sidebar p { font-size: 13px; color: var(--text-secondary); margin-bottom: 12px; }
+        .newsletter-sidebar input {
+            width: 100%; padding: 10px 14px; border: 1.5px solid var(--border-tag);
+            border-radius: 8px; font-size: 14px; font-family: inherit;
+            background: var(--bg); color: var(--text); margin-bottom: 8px;
+        }
+        .newsletter-sidebar input:focus { outline: none; border-color: var(--blue); }
+        .newsletter-sidebar button {
+            width: 100%; padding: 12px; background: var(--blue); color: #fff;
+            border: none; border-radius: 8px; font-weight: 700; font-size: 14px;
+            cursor: pointer; transition: all 0.2s; font-family: inherit;
+        }
+        .newsletter-sidebar button:hover { background: var(--blue-dark); }
+        .rubrique-links { display: flex; flex-direction: column; gap: 0; }
+        .rubrique-link {
+            padding: 10px 0; border-bottom: 1px solid var(--border);
+            font-size: 14px; color: var(--blue); font-weight: 500;
+            transition: all 0.2s; display: flex; align-items: center; gap: 6px;
+        }
+        .rubrique-link:last-child { border-bottom: none; }
+        .rubrique-link:hover { color: var(--blue-dark); padding-left: 4px; }
+        .rubrique-link::before { content: '→'; font-size: 12px; color: var(--text-muted); }
+
+        /* Section dividers */
+        .section-divider {
+            margin: 32px 40px 0; padding: 24px 0 16px;
+            border-top: 3px solid var(--blue); text-align: left;
+        }
+        .section-divider-tag {
+            display: inline-block; padding: 6px 18px; background: var(--blue);
+            color: #fff; border-radius: 8px; font-size: 14px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+
+        /* ===== ADDITIONAL RESPONSIVE FOR LIVRES & FILMS ===== */
+        @media (max-width: 1024px) {
+            .articles-grid, .chroniques-grid, .bd-grid { grid-template-columns: repeat(2, 1fr); }
+            .ventes-grid { grid-template-columns: repeat(2, 1fr); }
+            .newsletter { flex-direction: column; text-align: center; }
+            .newsletter-form { width: 100%; justify-content: center; }
+            .films-content-layout { grid-template-columns: 1fr; gap: 32px; }
+            .films-sidebar { position: static; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        }
+        @media (max-width: 768px) {
+            .header-nav { display: none; }
+            .hero-hub { margin: 12px 16px 24px; padding: 20px; gap: 16px; flex-direction: column; text-align: center; }
+            .hero-hub--banner { padding: 0; }
+            .hero-hub-banner-img { height: 240px; }
+            .hero-hub-overlay { padding: 40px 20px 20px; text-align: left; }
+            .hero-hub-img { width: 90px; height: 126px; }
+            .hero-hub h1 { font-size: 22px; }
+            .hero-hub-actions { justify-content: center; }
+            .hero-hub-overlay .hero-hub-actions { justify-content: flex-start; }
+            .articles-grid, .chroniques-grid, .bd-grid { grid-template-columns: 1fr; }
+            .ventes-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+            .article-card-img { height: 180px; }
+            .chronique-card-img { height: 200px; }
+            .bd-card-img { height: 220px; }
+            .vente-card-img { height: 180px; }
+            .newsletter { margin: 0 16px 36px; padding: 24px 20px; flex-direction: column; }
+            .newsletter-form { flex-direction: column; width: 100%; }
+            .newsletter-form input { width: 100%; }
+            .page-header { padding: 8px 16px 20px; }
+            .page-header h1, .page-header h2 { font-size: 24px; }
+            .page-header-intro { font-size: 14px; }
+            .films-content-layout { padding: 0 16px 36px; gap: 28px; }
+            .film-card { flex-direction: column; gap: 16px; padding: 16px; }
+            .film-poster { width: 100%; height: 200px; border-radius: 10px; }
+            .film-info h2 { font-size: 18px; }
+            .films-sidebar { grid-template-columns: 1fr; }
+            .section-divider { margin: 24px 16px 0; }
+        }
+        @media (max-width: 480px) {
+            .hero-hub { margin: 8px 12px 20px; padding: 16px; }
+            .hero-hub h1 { font-size: 20px; }
+            .btn-primary, .btn-secondary { padding: 10px 20px; font-size: 13px; }
+            .ventes-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .vente-card-img { height: 160px; }
+            .vente-card-body { padding: 10px 12px 14px; }
+            .vente-card .vente-price { font-size: 16px; }
+            .page-header h1, .page-header h2 { font-size: 20px; }
+            .film-poster { height: 180px; }
+            .film-info h2 { font-size: 17px; }
+            .film-desc { font-size: 13px; }
+            .btn-cine { padding: 12px 20px; font-size: 13px; }
+            .section-divider { margin: 20px 12px 0; }
+        }
+
+    </style>
+
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Carrefour Cult'",
+        "description": "Votre espace culture Carrefour : actualités jeux video, livres, musique, films et séries.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Carrefour",
+            "url": "https://www.carrefour.fr"
+        },
+        "mainEntity": {
+            "@type": "ItemList",
+            "name": "Actualités culturelles Carrefour Cult'",
+            "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Jeux Vidéo"},
+                {"@type": "ListItem", "position": 2, "name": "Livres"},
+                {"@type": "ListItem", "position": 3, "name": "Musique"},
+                {"@type": "ListItem", "position": 4, "name": "Films et Séries"}
+            ]
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Qu'est-ce que Carrefour Cult' ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Carrefour Cult' est l'espace culturel en ligne de Carrefour. Il regroupe toute l'actualité sur les jeux video, les livres, la musique, les films, les séries et les événements culturels, avec des recommandations et des offres exclusives."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Comment accéder aux réductions Carrefour Cult' ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Les coupons de réduction personnalisés sont disponibles exclusivement sur l'application Carrefour. Téléchargez l'application, connectez-vous à votre compte et retrouvez vos offres culture dans la section Cult'."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quelles catégories culturelles sont disponibles sur Carrefour Cult' ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Carrefour Cult' couvre sept catégories : jeux video, livres, musique, films et séries, cadeaux, événements culturels et actualités."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Peut-on acheter directement depuis Carrefour Cult' ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Oui, Carrefour Cult' propose des liens d'achat directs vers les produits culturels disponibles sur carrefour.fr. Livres, jeux video, CD et vinyles sont livrables à domicile ou retirables en magasin."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Carrefour Cult' est-il gratuit ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "L'accès à Carrefour Cult' est entièrement gratuit. Un compte Carrefour est nécessaire uniquement pour accéder aux coupons personnalisés."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Aller au contenu principal</a>
+<div class="page-wrapper">
+    <div class="promo-ribbon">🎮 Offres de printemps : jusqu'à -30% sur les jeux vidéo, livres et DVD — <a href="#">En profiter</a></div>
+
+    <!-- HEADER -->
+    <header class="header" role="banner">
+        <div class="header-left">
+            <a href="#" class="logo" aria-label="Carrefour Cult' - Accueil"><img src="assets/logos/logo-cult.png" alt="Cult'" class="logo-img" width="107" height="40"></a>
+            <nav class="header-nav" aria-label="Navigation principale">
+                <a href="#section-livres-hub">Livres</a>
+                <a href="#">Gaming</a>
+                <a href="#section-films-hub">Films</a>
+                <a href="#section-musique">Musique</a>
+            </nav>
+        </div>
+        <div class="search-bar">
+            <input type="search" placeholder="Rechercher" aria-label="Rechercher sur Carrefour Cult'">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </div>
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Ouvrir le menu">
+            <span></span><span></span><span></span>
+        </button>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Changer le thème">
+            <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+    </header>
+
+    <!-- FIL D'ARIANE -->
+    <nav class="breadcrumb-lp" aria-label="Fil d'Ariane">
+        <a href="https://www.carrefour.fr">Carrefour</a>
+        <span>/</span>
+        Cult' — Espace Culture
+    </nav>
+
+    <!-- HERO -->
+    <section id="main-content" class="hero reveal" aria-label="Article à la une">
+        <a href="articles/article-tomb-raider.html" style="display:block;width:100%;height:100%;" aria-label="Lire l'article : C'est de la Tomb !">
+            <img class="hero-image" loading="lazy" width="1400" height="500" src="assets/images/hero-tomb-raider.png" alt="Lara Croft Tomb Raider - Hero image du jeu vidéo remasterisé" decoding="async">
+            <div class="hero-overlay">
+                <span class="hero-tag">Jeux vidéos</span>
+                <span class="hero-date">Publié le 18.03.2026</span>
+                <h1>C'est de la Tomb ! Lara Croft revient en force sur PS5 et Switch</h1>
+                <p>Le jeu vidéo sait ce qu'il doit à Lara Croft et la série des Tomb Raider. Découvrez les versions remasterisées des trois premiers épisodes, désormais disponibles sur consoles de nouvelle génération.</p>
+            </div>
+        </a>
+    </section>
+    <div class="hero-dots">
+        <span class="hero-dot"></span>
+        <span class="hero-dot active"></span>
+        <span class="hero-dot"></span>
+    </div>
+
+    <!-- SOCIAL PROOF -->
+    <div class="social-proof-bar">
+        <span class="stars">⭐</span> Rejoint par plus de 2 millions de passionnés de culture
+    </div>
+
+    <!-- CATEGORY TABS -->
+    <div class="category-tabs" role="tablist" aria-label="Filtrer par catégorie">
+        <a href="#main-content" class="cat-tab active" role="tab" aria-selected="true">À la une</a>
+        <a href="#actualités" class="cat-tab" role="tab" aria-selected="false">Actualités</a>
+        <a href="#section-livres-hub" class="cat-tab" role="tab" aria-selected="false">Livres</a>
+        <a href="#main-content" class="cat-tab" role="tab" aria-selected="false">Jeux vidéos</a>
+        <a href="#section-films-hub" class="cat-tab" role="tab" aria-selected="false">Films & Séries</a>
+        <a href="#section-musique" class="cat-tab" role="tab" aria-selected="false">Musique</a>
+        <a href="#section-cadeaux" class="cat-tab" role="tab" aria-selected="false">Cadeaux</a>
+        <a href="#" class="cat-tab" role="tab" aria-selected="false">Événements</a>
+    </div>
+
+    <!-- ACTUALITES -->
+    <section id="actualités" class="section">
+        <div class="section-header reveal">
+            <h2>Actualités culturelles Carrefour Cult'</h2>
+            <a href="#" class="voir-tout">Voir tout</a>
+        </div>
+        <div class="actu-layout">
+            <article class="article-card reveal reveal-delay-1">
+                <span class="badge badge-new">Nouveau</span>
+                <img class="article-card-img" loading="lazy" src="assets/images/mario-luigi.png" alt="Mario et Luigi L'épopée fraternelle - Jeu vidéo Nintendo coopératif" decoding="async">
+                <h3>Marie & Luigi : L'épopée fraternelle</h3>
+                <p>Le duo le plus célèbre du jeu vidéo revient dans une aventure inédite. Découvrez pourquoi ce titre promet d'être l'un des meilleurs jeux coopératifs de 2026.</p>
+            </article>
+            <article class="article-card reveal reveal-delay-2">
+                <img class="article-card-img" loading="lazy" src="assets/images/bad-boys.png" alt="Bad Boys Ride or Die - Affiche du film avec Will Smith et Martin Lawrence" decoding="async">
+                <h3>Bad Boys : Ride or Die</h3>
+                <p>Le blockbuster de l'année est arrivé en DVD et Blu-ray chez Carrefour. L'aventure explosive à retrouver en famille ou entre amis.</p>
+            </article>
+            <article class="article-card reveal reveal-delay-3">
+                <img class="article-card-img" loading="lazy" src="assets/images/nba2k25.png" alt="NBA 2K25 - Couverture du jeu vidéo de basketball" decoding="async">
+                <h3>Au k Ou... Les tendances gaming de 2026</h3>
+                <p>Entre sorties next-gen et indépendants surprises, 2026 s'annonce comme une année exceptionnelle pour les joueurs.</p>
+            </article>
+            <aside class="sidebar-products reveal" aria-label="Produits recommandes">
+                <div class="product-card featured">
+                    <img class="product-img" loading="lazy" src="assets/images/harry-potter.png" alt="Couverture Harry Potter à l'école des sorciers édition Gallimard" decoding="async">
+                    <div class="product-info">
+                        <span class="badge badge-bestseller">Best-seller</span>
+                        <h4>Harry Potter Tome 1</h4>
+                        <span class="product-price">13,90 €</span>
+                        <div class="article-rating"><span class="stars">★★★★★</span> 4.8/5 (1 247 avis)</div>
+                        <a href="#" class="btn-cta">Acheter — Livraison gratuite</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-img" loading="lazy" src="assets/images/moi-moche-mechant.png" alt="Moi moche et méchant 4 - Scène du film d'animation" decoding="async">
+                    <div class="product-info">
+                        <h4>Moi, moche et méchant 4</h4>
+                        <p class="product-price">Blu-ray — 14,99 €</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-img" loading="lazy" src="assets/images/nba2k25.png" alt="NBA 2K25 - Jeu vidéo de basketball PS5 Xbox" decoding="async">
+                    <div class="product-info">
+                        <h4>NBA 2K25</h4>
+                        <p class="product-price">PS5 / Xbox — 49,99 €</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <!-- PROMO BANNER -->
+    <div class="promo-banner reveal" role="complementary" aria-label="Promotion application Carrefour">
+        <div class="promo-qr">
+            <svg viewBox="0 0 80 80" fill="#333">
+                <rect x="5" y="5" width="20" height="20" rx="2"/>
+                <rect x="30" y="5" width="8" height="8" rx="1"/>
+                <rect x="55" y="5" width="20" height="20" rx="2"/>
+                <rect x="5" y="30" width="8" height="8" rx="1"/>
+                <rect x="18" y="35" width="8" height="8" rx="1"/>
+                <rect x="35" y="30" width="10" height="10" rx="1"/>
+                <rect x="55" y="30" width="8" height="8" rx="1"/>
+                <rect x="5" y="55" width="20" height="20" rx="2"/>
+                <rect x="30" y="55" width="8" height="8" rx="1"/>
+                <rect x="45" y="50" width="10" height="10" rx="1"/>
+                <rect x="60" y="55" width="15" height="15" rx="1"/>
+            </svg>
+        </div>
+        <div class="promo-text">
+            <h3>Tous vos coupons de réductions personnalisés uniquement sur l'application Carrefour</h3>
+        </div>
+        <a href="#" class="promo-cta-btn">Télécharger l'app</a>
+    </div>
+
+    <!-- ===== LIVRES HUB ===== -->
+    <div class="section-divider" id="section-livres-hub">
+        <span class="section-divider-tag">Livres</span>
+    </div>
+
+    <!-- HERO HUB -->
+    <section id="livres-hero" class="hero-hub hero-hub--banner reveal" aria-label="Livre à la une">
+        <img class="hero-hub-banner-img" src="https://media.hachette.fr/32/2026-02/home-crime-paradis.png" alt="Guillaume Musso - Portrait de l'auteur avec la couverture de son roman Le Crime du paradis" loading="eager" width="1272" height="622" decoding="async">
+        <div class="hero-hub-overlay">
+            <span class="hero-hub-badge">À la une</span>
+            <h1>Le Crime du paradis</h1>
+            <p class="hero-hub-subtitle">Guillaume Musso — Le nouveau thriller événement</p>
+            <div class="hero-hub-actions">
+                <a href="#" class="btn-primary">🛒 Acheter — 22,90 €</a>
+                <a href="articles/article-musso.html" class="btn-secondary">📖 Lire l'interview</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERVIEWS & DOSSIERS -->
+    <section id="interviews" class="section">
+        <div class="section-header reveal">
+            <h2><span class="section-icon">📰</span> Interviews & Dossiers</h2>
+            <a href="#" class="voir-tout">Voir tout</a>
+        </div>
+        <div class="articles-grid">
+            <article class="article-card reveal reveal-d1">
+                <a href="#">
+                    <img class="article-card-img" loading="lazy" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=280&fit=crop&q=80" alt="Portrait de Meï Lepage, autrice de thrillers" decoding="async">
+                    <div class="article-card-body">
+                        <span class="article-card-tag">Interview</span>
+                        <h3>Meï Lepage : "Faut se mettre à Lepage !"</h3>
+                        <p>Par la rédaction Cult'</p>
+                    </div>
+                </a>
+            </article>
+            <article class="article-card reveal reveal-d2">
+                <a href="#">
+                    <img class="article-card-img" loading="lazy" src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=400&h=280&fit=crop&q=80" alt="Stephen King, le maître du thriller littéraire" decoding="async">
+                    <div class="article-card-body">
+                        <span class="article-card-tag">Chronique</span>
+                        <h3>Stephen King : Ne jamais trembler, le Maître revient en force</h3>
+                        <p>Par la rédaction Cult'</p>
+                    </div>
+                </a>
+            </article>
+            <article class="article-card reveal reveal-d3">
+                <a href="#">
+                    <img class="article-card-img" loading="lazy" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=280&fit=crop&q=80" alt="Fjords nordiques, univers du polar islandais" decoding="async">
+                    <div class="article-card-body">
+                        <span class="article-card-tag">Dossier</span>
+                        <h3>Eva Björg Ægisdóttir : Fjords au noir, reine du polar islandais</h3>
+                        <p>Par la rédaction Cult'</p>
+                    </div>
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <!-- DERNIÈRES CHRONIQUES -->
+    <section id="chroniques" class="section">
+        <div class="section-header reveal">
+            <h2><span class="section-icon">✍️</span> Dernières Chroniques</h2>
+            <a href="#" class="voir-tout">Voir tout</a>
+        </div>
+        <div class="chroniques-grid">
+            <article class="chronique-card reveal reveal-d1">
+                <a href="#">
+                    <img class="chronique-card-img" loading="lazy" src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&h=300&fit=crop&q=80" alt="Couverture Tu m'avais promis de Maud Ankaoua" decoding="async">
+                    <div class="chronique-card-body">
+                        <h3>Tu m'avais promis</h3>
+                        <p class="author">Maud Ankaoua — Éditions Edita</p>
+                        <p>Un voyage initiatique lumineux de l'autrice de Kilomètre Zéro. Un récit qui touche droit au cœur.</p>
+                    </div>
+                </a>
+            </article>
+            <article class="chronique-card reveal reveal-d2">
+                <a href="#">
+                    <img class="chronique-card-img" loading="lazy" src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=400&h=300&fit=crop&q=80" alt="Couverture Our Vicious Lies de Lyla Mars" decoding="async">
+                    <div class="chronique-card-body">
+                        <h3>Our Vicious Lies</h3>
+                        <p class="author">Lyla Mars — Hugo Roman</p>
+                        <p>La nouvelle sensation New Romance aux accents de thriller psychologique. Un page-turner addictif.</p>
+                    </div>
+                </a>
+            </article>
+            <article class="chronique-card reveal reveal-d3">
+                <a href="#">
+                    <img class="chronique-card-img" loading="lazy" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop&q=80" alt="Couverture Pour que renaisse le soleil de Durian Sukegawa" decoding="async">
+                    <div class="chronique-card-body">
+                        <h3>Pour que renaisse le soleil</h3>
+                        <p class="author">Durian Sukegawa — Kibun</p>
+                        <p>L'auteur des Délices de Tokyo revient avec un conte philosophique poignant sur la résilience.</p>
+                    </div>
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <!-- BD & MANGAS -->
+    <section id="bd-mangas" class="section">
+        <div class="section-header reveal">
+            <h2><span class="section-icon">💬</span> BD & Mangas</h2>
+            <a href="#" class="voir-tout">Voir tout</a>
+        </div>
+        <div class="bd-grid">
+            <article class="bd-card reveal reveal-d1">
+                <a href="#">
+                    <img class="bd-card-img" loading="lazy" src="https://images.unsplash.com/photo-1618336753974-aae8e04506aa?w=400&h=350&fit=crop&q=80" alt="Couverture manga Cats and Dragon tome 1" decoding="async">
+                    <div class="bd-card-body">
+                        <span class="bd-badge bd-badge-manga">Manga</span>
+                        <h3>Cats and Dragon — Tome 1</h3>
+                        <p>Izumi Sasaki / Amara — Doki-Doki</p>
+                    </div>
+                </a>
+            </article>
+            <article class="bd-card reveal reveal-d2">
+                <a href="#">
+                    <img class="bd-card-img" loading="lazy" src="https://images.unsplash.com/photo-1611457194403-d895ad0fce2e?w=400&h=350&fit=crop&q=80" alt="Couverture manga The Hitman's Fave tome 1" decoding="async">
+                    <div class="bd-card-body">
+                        <span class="bd-badge bd-badge-manga">Manga</span>
+                        <h3>The Hitman's Fave — Tome 1</h3>
+                        <p>Rintaro Oshima — Kurokawa</p>
+                    </div>
+                </a>
+            </article>
+            <article class="bd-card reveal reveal-d3">
+                <a href="#">
+                    <img class="bd-card-img" loading="lazy" src="https://images.unsplash.com/photo-1594909122845-11baa439b7bf?w=400&h=350&fit=crop&q=80" alt="Couverture BD Jolly Jumper ne répond plus de Bouzard" decoding="async">
+                    <div class="bd-card-body">
+                        <span class="bd-badge bd-badge-bd">BD</span>
+                        <h3>Jolly Jumper ne répond plus</h3>
+                        <p>Bouzard — Hommage à Lucky Luke</p>
+                    </div>
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <!-- MEILLEURES VENTES LIVRES -->
+    <section id="meilleures-ventes" class="section">
+        <div class="section-header reveal">
+            <h2><span class="section-icon">🏆</span> Meilleures ventes Livres</h2>
+            <a href="#" class="voir-tout">Voir tout</a>
+        </div>
+        <div class="ventes-grid">
+            <article class="vente-card reveal reveal-d1">
+                <a href="#">
+                    <img class="vente-card-img" loading="lazy" src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=300&h=280&fit=crop&q=80" alt="Le Crime du paradis de Guillaume Musso" decoding="async">
+                    <div class="vente-card-body">
+                        <h3>Le Crime du paradis</h3>
+                        <p class="vente-author">Guillaume Musso</p>
+                        <p class="vente-price">22,90 €</p>
+                        <span class="btn-acheter">🛒 Acheter</span>
+                    </div>
+                </a>
+            </article>
+            <article class="vente-card reveal reveal-d2">
+                <a href="#">
+                    <img class="vente-card-img" loading="lazy" src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=300&h=280&fit=crop&q=80" alt="Ne jamais trembler de Stephen King" decoding="async">
+                    <div class="vente-card-body">
+                        <h3>Ne jamais trembler</h3>
+                        <p class="vente-author">Stephen King</p>
+                        <p class="vente-price">23,90 €</p>
+                        <span class="btn-acheter">🛒 Acheter</span>
+                    </div>
+                </a>
+            </article>
+            <article class="vente-card reveal reveal-d3">
+                <a href="#">
+                    <img class="vente-card-img" loading="lazy" src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=300&h=280&fit=crop&q=80" alt="Our Vicious Lies de Lyla Mars" decoding="async">
+                    <div class="vente-card-body">
+                        <h3>Our Vicious Lies</h3>
+                        <p class="vente-author">Lyla Mars</p>
+                        <p class="vente-price">18,90 €</p>
+                        <span class="btn-acheter">🛒 Acheter</span>
+                    </div>
+                </a>
+            </article>
+            <article class="vente-card reveal reveal-d3">
+                <a href="#">
+                    <img class="vente-card-img" loading="lazy" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=280&fit=crop&q=80" alt="Sécher tes larmes de Meï Lepage" decoding="async">
+                    <div class="vente-card-body">
+                        <h3>Sécher tes larmes</h3>
+                        <p class="vente-author">Meï Lepage</p>
+                        <p class="vente-price">21,50 €</p>
+                        <span class="btn-acheter">🛒 Acheter</span>
+                    </div>
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <div class="newsletter reveal" role="complementary" aria-label="Inscription newsletter livres">
+        <div class="newsletter-text">
+            <h3>📬 La newsletter Livres Cult'</h3>
+            <p>Interviews, chroniques et bons plans lecture chaque jeudi</p>
+        </div>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='✓ Inscrit !'; this.querySelector('button').style.background='#10b981'; this.querySelector('button').style.color='#fff';">
+            <input type="email" placeholder="votre@email.com" aria-label="Votre adresse email" required>
+            <button type="submit">S'inscrire</button>
+        </form>
+    </div>
+
+        <!-- MUSIQUE -->
+    <section id="section-musique" class="section">
+        <div class="section-header reveal">
+            <h2>Nouveautés musique : les albums à écouter</h2>
+            <a href="#" class="voir-tout">Voir tout</a>
+        </div>
+        <div class="musique-grid">
+            <article class="album-card reveal reveal-delay-1">
+                <img class="album-img" loading="lazy" src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop&q=80" alt="L'arbre du pardon - Artiste masculin portrait" decoding="async">
+                <h4>L'arbre du pardon</h4>
+                <p>Un album solo entre chanson française et rock poétique. Disponible en CD et vinyle chez Carrefour.</p>
+            </article>
+            <article class="album-card reveal reveal-delay-2">
+                <img class="album-img" loading="lazy" src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=300&h=300&fit=crop&q=80" alt="Vers la source - Artiste feminine portrait" decoding="async">
+                <h4>Vers la source</h4>
+                <p>Un voyage musical introspectif qui explore les racines de la chanson et du rock français avec une sensibilité rare.</p>
+            </article>
+            <article class="album-card reveal reveal-delay-3">
+                <img class="album-img" loading="lazy" src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=300&h=300&fit=crop&q=80" alt="Animal Crossing New Horizons bande originale vinyle" decoding="async">
+                <h4>Animal Crossing : New Horizons OST</h4>
+                <p>La bande originale du jeu phénomène enfin disponible en vinyle collector. Un must pour les fans.</p>
+            </article>
+            <article class="album-card reveal reveal-delay-3">
+                <img class="album-img" loading="lazy" src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop&q=80" alt="Faites place - Album pop électro" decoding="async">
+                <h4>Faites place !</h4>
+                <p>Le nouvel album énergique qui melange pop, électro et influences urbaines. L'album qui donne envie de danser.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- ===== FILMS HUB ===== -->
+    <div class="section-divider" id="section-films-hub">
+        <span class="section-divider-tag">Films & Séries</span>
+    </div>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header" id="films-header">
+        <div class="page-header-badges reveal">
+            <span class="badge-cat badge-cinema">Cinéma</span>
+            <span class="badge-cat badge-selection">Sélection du mois</span>
+        </div>
+        <h2 class="reveal" style="font-size:32px;">Les 4 films à voir en mars 2026</h2>
+        <p class="page-header-meta reveal">Par la rédaction Cult' · Mars 2026 · 5 min de lecture</p>
+        <p class="page-header-intro reveal"><strong>De l'épopée spatiale au biopic de boxe, en passant par le drame historique :</strong> notre sélection des immanquables en salle ce mois-ci, tirée du catalogue Carrefour Savoirs N°321.</p>
+    </div>
+
+    <!-- CONTENT + SIDEBAR -->
+    <div class="films-content-layout">
+
+        <!-- MAIN CONTENT -->
+        <div class="films-main-content">
+
+            <!-- FILM 1 -->
+            <article id="film-1" class="film-card reveal">
+                <img class="film-poster" loading="lazy" src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=280&h=400&fit=crop&q=80" alt="Affiche Projet Dernière Chance - Astronaute dans l'espace" decoding="async" width="280" height="400">
+                <div class="film-info">
+                    <div class="film-tags">
+                        <span class="film-tag film-tag-sf">Science-Fiction</span>
+                        <span class="film-tag film-tag-aventure">Aventure</span>
+                    </div>
+                    <h2>Projet Dernière Chance</h2>
+                    <p class="film-meta">Phil Lord & Christopher Miller · D'après Andy Weir</p>
+                    <p class="film-date">En salle depuis le 18 mars 2026</p>
+                    <p class="film-desc">Ryan Gosling incarne un astronaute solitaire chargé de sauver l'humanité. Par les créateurs primés aux Oscars de la franchise Spider-Verse. Un voyage spatial haletant qui mêle humour, émotion et science rigoureuse.</p>
+                    <a href="#" class="btn-cine">🎬 Places ciné Carrefour Spectacles</a>
+                </div>
+            </article>
+
+            <!-- FILM 2 -->
+            <article id="film-2" class="film-card reveal">
+                <img class="film-poster" loading="lazy" src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=280&h=400&fit=crop&q=80" alt="Affiche Le Testament d'Ann Lee - Paysage historique anglais" decoding="async" width="280" height="400">
+                <div class="film-info">
+                    <div class="film-tags">
+                        <span class="film-tag film-tag-drame">Drame historique</span>
+                        <span class="film-tag film-tag-biopic">Biopic</span>
+                    </div>
+                    <h2>Le Testament d'Ann Lee</h2>
+                    <p class="film-meta">Mona Fastvold · Avec Amanda Seyfried</p>
+                    <p class="film-date">En salle depuis le 11 mars 2026</p>
+                    <p class="film-desc">Amanda Seyfried incarne Ann Lee, fondatrice des Shakers dans l'Angleterre du XVIIIe siècle. Écrit par Mona Fastvold et Brady Corbet. Qualifié de « féroce » par la presse. Un portrait de femme saisissant.</p>
+                    <a href="#" class="btn-cine">🎬 Places ciné Carrefour Spectacles</a>
+                </div>
+            </article>
+
+            <!-- FILM 3 -->
+            <article id="film-3" class="film-card reveal">
+                <img class="film-poster" loading="lazy" src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=280&h=400&fit=crop&q=80" alt="Affiche Christy - Boxeuse en action sur le ring" decoding="async" width="280" height="400">
+                <div class="film-info">
+                    <div class="film-tags">
+                        <span class="film-tag film-tag-biopic">Biopic</span>
+                        <span class="film-tag film-tag-sport">Sport</span>
+                    </div>
+                    <h2>Christy</h2>
+                    <p class="film-meta">David Michôd · Avec Sydney Sweeney</p>
+                    <p class="film-date coming">Prochainement en salle</p>
+                    <p class="film-desc">Sydney Sweeney se transforme en Christy Martin, pionnière de la boxe féminine qui a brisé tous les plafonds de verre. Basé sur une histoire vraie. Un film puissant sur la résilience et le courage.</p>
+                    <a href="#" class="btn-cine">🎬 Places ciné Carrefour Spectacles</a>
+                </div>
+            </article>
+
+            <!-- FILM 4 -->
+            <article id="film-4" class="film-card reveal">
+                <img class="film-poster" loading="lazy" src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=280&h=400&fit=crop&q=80" alt="Affiche Le Sifflet - Atmosphère thriller sombre" decoding="async" width="280" height="400">
+                <div class="film-info">
+                    <div class="film-tags">
+                        <span class="film-tag film-tag-thriller">Thriller</span>
+                        <span class="film-tag film-tag-drame">Drame</span>
+                    </div>
+                    <h2>Le Sifflet</h2>
+                    <p class="film-meta">[Réalisateur du catalogue N°321]</p>
+                    <p class="film-date">Mars 2026</p>
+                    <p class="film-desc">Le quatrième film de la sélection du catalogue Carrefour Savoirs. Un thriller atmosphérique qui questionne les limites de la loyauté et de la trahison dans un huis-clos glaçant.</p>
+                    <a href="#" class="btn-cine">🎬 Places ciné Carrefour Spectacles</a>
+                </div>
+            </article>
+
+        </div>
+
+        <!-- SIDEBAR -->
+        <aside class="films-sidebar" aria-label="Contenus complémentaires">
+
+            <!-- DVD & Blu-ray du mois -->
+            <div class="sidebar-card reveal">
+                <h3><span class="icon">📀</span> DVD & Blu-ray du mois</h3>
+                <div class="dvd-item">
+                    <div>
+                        <p class="dvd-item-title">Yoroï</p>
+                        <p class="dvd-item-format">Blu-ray</p>
+                    </div>
+                    <span class="dvd-item-price">19,99 €</span>
+                </div>
+                <div class="dvd-item">
+                    <div>
+                        <p class="dvd-item-title">Black Phone 2</p>
+                        <p class="dvd-item-format">Blu-ray</p>
+                    </div>
+                    <span class="dvd-item-price">19,99 €</span>
+                </div>
+                <div class="dvd-item">
+                    <div>
+                        <p class="dvd-item-title">La Femme la plus riche du monde</p>
+                        <p class="dvd-item-format">DVD</p>
+                    </div>
+                    <span class="dvd-item-price">14,99 €</span>
+                </div>
+                <div class="dvd-item">
+                    <div>
+                        <p class="dvd-item-title">Predator: Badlands</p>
+                        <p class="dvd-item-format">4K UHD</p>
+                    </div>
+                    <span class="dvd-item-price">24,99 €</span>
+                </div>
+            </div>
+
+            <!-- Jeu concours -->
+            <div class="sidebar-card reveal">
+                <h3><span class="icon">🎁</span> Jeu concours</h3>
+                <div class="concours-content">
+                    <div class="concours-icons">🎬🍿</div>
+                    <p>Gagnez 2×2 places</p>
+                    <p class="concours-detail">Le Sifflet + Projet Dernière Chance</p>
+                    <a href="#" class="btn-concours">Participer au concours</a>
+                </div>
+            </div>
+
+            <!-- Newsletter Cinéma -->
+            <div class="sidebar-card newsletter-sidebar reveal">
+                <h3><span class="icon">📬</span> Newsletter Cinéma</h3>
+                <p>Sorties, critiques et bons plans ciné chaque mercredi</p>
+                <form onsubmit="event.preventDefault(); this.querySelector('button').textContent='✓ Inscrit !'; this.querySelector('button').style.background='#10b981';">
+                    <input type="email" placeholder="votre@email.com" aria-label="Votre email" required>
+                    <button type="submit">S'inscrire</button>
+                </form>
+            </div>
+
+            <!-- Dans cette rubrique -->
+            <div class="sidebar-card reveal">
+                <h3><span class="icon">📎</span> Dans cette rubrique</h3>
+                <div class="rubrique-links">
+                    <a href="#" class="rubrique-link">Interview : le casting de Projet Dernière Chance</a>
+                    <a href="#" class="rubrique-link">Sydney Sweeney : de Euphoria à Christy</a>
+                    <a href="#" class="rubrique-link">Top 10 DVD à offrir ce printemps</a>
+                </div>
+            </div>
+
+        </aside>
+
+    </div>
+
+        <!-- CADEAUX -->
+    <section id="section-cadeaux" class="section">
+        <div class="section-header reveal">
+            <h2>Idées cadeaux culture : offrez l'évasion</h2>
+            <a href="#" class="voir-tout">Voir tout</a>
+        </div>
+        <div class="livres-grid">
+            <article class="livre-card reveal reveal-delay-1"><a href="#" style="display:flex;gap:14px;">
+                <img class="livre-cover" loading="lazy" src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=110&h=160&fit=crop&q=80" alt="Coffret gamer idée cadeau" decoding="async">
+                <div class="livre-info"><h4>Coffret gamer : manette + jeu au choix</h4><p>Le cadeau parfait pour les passionnés. Manette sans fil + un jeu parmi notre sélection.</p></div>
+            </a></article>
+            <article class="livre-card reveal reveal-delay-2"><a href="#" style="display:flex;gap:14px;">
+                <img class="livre-cover" loading="lazy" src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=110&h=160&fit=crop&q=80" alt="Coffret livres best-sellers" decoding="async">
+                <div class="livre-info"><h4>Coffret best-sellers : 3 romans à dévorer</h4><p>Les trois livres les plus vendus réunis dans un coffret élégant. Idéal à offrir.</p></div>
+            </a></article>
+            <article class="livre-card reveal reveal-delay-1"><a href="#" style="display:flex;gap:14px;">
+                <img class="livre-cover" loading="lazy" src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=110&h=160&fit=crop&q=80" alt="Platine vinyle cadeau musique" decoding="async">
+                <div class="livre-info"><h4>Platine vinyle + album collector</h4><p>L'expérience vinyle complète : platine design + album collector au choix.</p></div>
+            </a></article>
+            <article class="livre-card reveal reveal-delay-2"><a href="#" style="display:flex;gap:14px;">
+                <img class="livre-cover" loading="lazy" src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=110&h=160&fit=crop&q=80" alt="Carte cadeau Carrefour culture" decoding="async">
+                <div class="livre-info"><h4>Carte cadeau Carrefour Culture</h4><p>Laissez le choix ! Carte utilisable sur tout le rayon culture : jeux, livres, musique, films.</p></div>
+            </a></article>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta reveal">
+        <h2>Explorez tout l'univers Carrefour Cult'</h2>
+        <p>Jeux vidéo, livres, musique, films et séries : retrouvez chaque semaine de nouvelles recommandations et offres exclusives.</p>
+        <a href="#" class="final-cta-btn">Voir les prix et promotions culture</a>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq-section">
+        <h2 class="reveal">Questions fréquentes sur Carrefour Cult'</h2>
+        <div class="faq-list">
+            <div class="faq-item reveal">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    Qu'est-ce que Carrefour Cult' ?
+                </div>
+                <div class="faq-answer">
+                    <p>Carrefour Cult' est l'espace culturel en ligne de Carrefour. Il regroupe toute l'actualité sur les jeux video, les livres, la musique, les films, les séries et les événements culturels, avec des recommandations éditoriales et des offres exclusives réservées aux clients Carrefour.</p>
+                </div>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    Comment accéder aux réductions exclusives Carrefour Cult' ?
+                </div>
+                <div class="faq-answer">
+                    <p>Les coupons de réduction personnalisés sont disponibles exclusivement sur l'application Carrefour. Téléchargez l'application, connectez-vous à votre compte fidélité et retrouvez vos offres culture dans la section dédiée Cult'.</p>
+                </div>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    Quelles catégories culturelles sont disponibles ?
+                </div>
+                <div class="faq-answer">
+                    <p>Carrefour Cult' couvre sept catégories : jeux video, livres, musique, films et séries, cadeaux, événements culturels et actualités générales. Chaque catégorie propose des articles de fond, des recommandations et des offres spéciales.</p>
+                </div>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    Peut-on acheter des produits culturels directement depuis Carrefour Cult' ?
+                </div>
+                <div class="faq-answer">
+                    <p>Oui, Carrefour Cult' intègre des liens d'achat directs vers les produits culturels disponibles sur carrefour.fr. Livres, jeux video, CD, vinyles et Blu-ray sont livrables à domicile ou retirables en magasin Carrefour.</p>
+                </div>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    L'accès à Carrefour Cult' est-il gratuit ?
+                </div>
+                <div class="faq-answer">
+                    <p>L'accès à Carrefour Cult' est entièrement gratuit. Tous les articles, recommandations et actualités culturelles sont consultables sans inscription. Seuls les coupons de réduction personnalisés nécessitent un compte Carrefour et l'application mobile.</p>
+                </div>
+            </div>
+
+            <!-- FAQ from LP Livres -->
+            <div class="faq-item reveal">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    Quels types de livres trouve-t-on sur Carrefour Cult' ?
+                </div>
+                <div class="faq-answer">
+                    <p>Carrefour Cult' Livres propose un large catalogue : romans, thrillers, BD, mangas, livres jeunesse, essais, beaux livres et bien plus. La rédaction publie aussi des interviews d'auteurs, des chroniques littéraires détaillées et des dossiers thématiques pour guider vos lectures.</p>
+                </div>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    Comment bénéficier de la livraison gratuite sur les livres Carrefour ?
+                </div>
+                <div class="faq-answer">
+                    <p>La livraison est gratuite en point retrait Carrefour pour toute commande de livres, sans minimum d'achat. Vous pouvez également opter pour le retrait en 1h en magasin ou la livraison à domicile à partir de 3,99 €.</p>
+                </div>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    Peut-on acheter des mangas et BD sur Carrefour Cult' ?
+                </div>
+                <div class="faq-answer">
+                    <p>Absolument. Carrefour Cult' dispose d'une section BD & Mangas dédiée avec les dernières sorties, les séries les plus suivies et les recommandations de la rédaction. Les prix sont compétitifs avec retrait gratuit en magasin Carrefour.</p>
+                </div>
+            </div>
+            <!-- FAQ from LP Films -->
+            <div class="faq-item reveal">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    Quels sont les films à voir en mars 2026 ?
+                </div>
+                <div class="faq-answer">
+                    <p>La sélection Carrefour Cult' de mars 2026 recommande 4 films incontournables : Projet Dernière Chance (science-fiction avec Ryan Gosling), Le Testament d'Ann Lee (drame historique avec Amanda Seyfried), Christy (biopic sportif avec Sydney Sweeney) et Le Sifflet (thriller).</p>
+                </div>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    Comment réserver des places de cinéma avec Carrefour Spectacles ?
+                </div>
+                <div class="faq-answer">
+                    <p>Rendez-vous sur Carrefour Spectacles pour réserver vos places de cinéma à tarif réduit. Les billets sont disponibles pour la plupart des cinémas en France, avec des réductions exclusives pour les porteurs de la carte Carrefour fidélité.</p>
+                </div>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    Carrefour Cult' propose-t-il des jeux concours cinéma ?
+                </div>
+                <div class="faq-answer">
+                    <p>Oui, Carrefour Cult' organise régulièrement des jeux concours pour gagner des places de cinéma gratuites. Consultez la rubrique Films pour découvrir les concours en cours et tenter votre chance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer" role="contentinfo">
+        <p>&copy; 2026 Carrefour Cult' &mdash; Tous droits réservés | <a href="#">Mentions légales</a> | <a href="#">Politique de confidentialité</a> | <a href="#">CGU</a></p>
+    </footer>
+
+</div>
+
+<!-- Mobile menu overlay -->
+<nav class="mobile-menu" id="mobileMenu" aria-label="Menu mobile">
+    <div class="mobile-search">
+        <input type="search" placeholder="Rechercher sur Cult'" aria-label="Rechercher">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    </div>
+    <a href="#main-content" onclick="closeMenu()">À la une</a>
+    <a href="#actualités" onclick="closeMenu()">Actualités</a>
+    <a href="#section-livres-hub" onclick="closeMenu()">Livres</a>
+    <a href="#main-content" onclick="closeMenu()">Jeux vidéos</a>
+    <a href="#section-films-hub" onclick="closeMenu()">Films & Séries</a>
+    <a href="#section-musique" onclick="closeMenu()">Musique</a>
+    <a href="#section-cadeaux" onclick="closeMenu()">Cadeaux</a>
+    <a href="#" onclick="closeMenu()">Événements</a>
+    <a href="#faq" onclick="closeMenu()">FAQ</a>
+</nav>
+
+<!-- Sticky CTA mobile -->
+<div class="sticky-cta-mobile">
+    <a href="#">Voir les promos culture — Retrait 1h</a>
+</div>
+
+<script>
+// Mobile menu toggle
+function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const hamburger = document.querySelector('.hamburger');
+    const isOpen = menu.classList.contains('open');
+    if (isOpen) {
+        menu.classList.remove('open');
+        hamburger.classList.remove('open');
+        document.body.style.overflow = '';
+    } else {
+        menu.classList.add('open');
+        hamburger.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+}
+function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.querySelector('.hamburger').classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+// Dark mode toggle
+function toggleTheme() {
+    const html = document.documentElement;
+    const current = html.getAttribute('data-theme');
+    html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+}
+
+// Scroll reveal animations with mobile fallback
+if ('IntersectionObserver' in window) {
+    const isMobile = window.innerWidth <= 768;
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.01, rootMargin: '0px 0px 50px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => {
+        // Force visibility for elements inside horizontal scroll containers
+        if (isMobile && el.closest('.sidebar-products')) {
+            el.classList.add('visible');
+        } else {
+            observer.observe(el);
+        }
+    });
+
+    // Fallback: reveal any still-hidden elements after 3s
+    setTimeout(() => {
+        document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+            el.classList.add('visible');
+        });
+    }, 3000);
+} else {
+    // No IntersectionObserver support: show everything
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+}
+
+// Tab interactivity
+document.querySelectorAll('.cat-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        document.querySelectorAll('.cat-tab').forEach(t => {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+    });
+});
+document.querySelectorAll('.nav-tag').forEach(tag => {
+    tag.addEventListener('click', () => {
+        document.querySelectorAll('.nav-tag').forEach(t => t.classList.remove('active'));
+        tag.classList.add('active');
+    });
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+        const href = a.getAttribute('href');
+        if (href && href !== '#') {
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Close mobile menu if open
+                if (document.getElementById('mobileMenu').classList.contains('open')) {
+                    closeMenu();
+                }
+            }
+        }
+    });
+});
+
+</script>
+
+</body>
+</html>
