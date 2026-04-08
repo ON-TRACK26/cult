@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C'est de la Tomb ! Lara Croft revient sur PS5 et Switch | Carrefour Cult'</title>
+    <meta name="description" content="Découvrez le retour de Lara Croft avec les remasters Tomb Raider sur PS5 et Switch. Test, avis et où acheter les jeux chez Carrefour au meilleur prix.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="C'est de la Tomb ! Lara Croft revient sur PS5 et Switch">
+    <meta property="og:description" content="Le retour de Lara Croft avec les remasters Tomb Raider sur PS5 et Switch. Tout savoir sur Carrefour Cult'.">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="article:published_time" content="2026-03-18">
+    <meta property="article:section" content="Jeux video">
+    <link rel="canonical" href="https://www.carrefour.fr/cult/articles/tomb-raider-remaster-ps5-switch">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700;1,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg:#ffffff;--bg-alt:#f8f9fa;--bg-card:#f4f4f5;--text:#1a1a1a;
+            --text-secondary:#555;--text-muted:#888;--border:#e5e5e5;--border-tag:#d4d4d8;
+            --blue:#0058a3;--blue-dark:#004080;--blue-light:#e8f2fc;--purple:#5b4dff;
+            --green:#10b981;--orange:#f59e0b;--shadow:rgba(0,0,0,0.06);
+            --shadow-lg:rgba(0,0,0,0.1);--header-bg:#fff;--hover-card:#eef1ff;
+            --quote-bg:#fffbeb;--quote-border:#f59e0b;
+        }
+        [data-theme="dark"] {
+            --bg:#0f0f14;--bg-alt:#16161d;--bg-card:#1e1e28;--text:#e8e8ec;
+            --text-secondary:#a0a0b0;--text-muted:#666680;--border:#2a2a38;
+            --border-tag:#3a3a4a;--shadow:rgba(0,0,0,0.25);--shadow-lg:rgba(0,0,0,0.4);
+            --header-bg:#12121a;--hover-card:#28283a;--blue-light:#1a2a44;
+            --quote-bg:#2a2518;--quote-border:#f59e0b;
+        }
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;transition:background .3s,color .3s}
+        a{text-decoration:none;color:inherit}img{max-width:100%;height:auto;display:block}
+
+        /* Animations */
+        .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+        .reveal.visible{opacity:1;transform:translateY(0)}
+
+        /* Skip link */
+        .skip-link{position:absolute;top:-100px;left:16px;padding:12px 24px;background:var(--blue);color:#fff;border-radius:0 0 8px 8px;font-weight:700;font-size:14px;z-index:200;transition:top .3s}
+        .skip-link:focus{top:0}
+
+        /* Layout */
+        .page-wrapper{max-width:1440px;margin:0 auto;background:var(--bg);transition:background .3s}
+
+        /* Header */
+        .header{display:flex;align-items:center;justify-content:space-between;padding:14px 40px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--header-bg);z-index:100;transition:background .3s;backdrop-filter:blur(12px)}
+        .header-left{display:flex;align-items:center;gap:24px}
+        .logo{display:flex;align-items:center}
+        .logo-img{height:36px;width:auto;transition:opacity .3s}
+        .logo-img:hover{opacity:.8}
+        [data-theme="dark"] .logo-img{filter:brightness(0) invert(1)}
+        .header-nav{display:flex;gap:4px}
+        .header-nav a{padding:8px 16px;border-radius:8px;font-size:14px;font-weight:500;color:var(--text-secondary);transition:all .2s}
+        .header-nav a:hover{color:var(--text);background:var(--bg-alt)}
+        .header-nav a.active{color:var(--blue);font-weight:700;background:var(--blue-light)}
+        .header-right{display:flex;align-items:center;gap:12px}
+        .theme-toggle{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--border-tag);background:var(--bg);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;flex-shrink:0}
+        .theme-toggle:hover{border-color:var(--blue);background:var(--bg-alt)}
+        .theme-toggle svg{width:18px;height:18px;color:var(--text)}
+        .theme-toggle .icon-moon{display:block}.theme-toggle .icon-sun{display:none}
+        [data-theme="dark"] .theme-toggle .icon-moon{display:none}
+        [data-theme="dark"] .theme-toggle .icon-sun{display:block}
+        .hamburger{display:none;width:44px;height:44px;border:none;background:transparent;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:10px}
+        .hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .3s}
+        .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+        .hamburger.open span:nth-child(2){opacity:0}
+        .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+        .mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--bg);z-index:99;padding:80px 24px 24px;flex-direction:column;overflow-y:auto;opacity:0;transform:translateY(-10px);transition:opacity .3s,transform .3s}
+        .mobile-menu.open{display:flex;opacity:1;transform:translateY(0)}
+        .mobile-menu a{display:flex;align-items:center;padding:16px 0;font-size:18px;font-weight:600;color:var(--text);border-bottom:1px solid var(--border);min-height:52px}
+
+        /* Breadcrumb */
+        .breadcrumb{padding:12px 40px;font-size:13px;color:var(--text-muted)}
+        .breadcrumb a{color:var(--blue);transition:opacity .2s}.breadcrumb a:hover{opacity:.7}
+        .breadcrumb span{margin:0 6px;color:var(--border-tag)}
+
+        /* Article header */
+        .article-header{padding:8px 40px 20px}
+        .article-badges{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+        .badge{display:inline-block;padding:4px 12px;border-radius:6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.3px}
+        .badge-games{background:var(--purple);color:#fff}
+        .badge-test{background:var(--orange);color:#fff}
+        .article-header h1{font-size:30px;font-weight:800;line-height:1.2;margin-bottom:8px;max-width:720px}
+        .article-meta{font-size:13px;color:var(--text-muted);margin-bottom:0}
+        .article-meta strong{color:var(--text-secondary);font-weight:600}
+
+        /* Hero image */
+        .article-hero{margin:0 40px 28px;border-radius:14px;overflow:hidden;max-height:440px}
+        .article-hero img{width:100%;height:100%;object-fit:cover}
+
+        /* Content layout */
+        .content-layout{display:grid;grid-template-columns:1fr 300px;gap:40px;padding:0 40px 48px;align-items:start}
+
+        /* Sommaire */
+        .sommaire{padding:20px 24px;background:var(--bg-card);border-radius:12px;margin-bottom:28px;border-left:4px solid var(--blue);transition:background .3s}
+        .sommaire h2{font-size:16px;font-weight:700;margin-bottom:10px}
+        .sommaire ol{list-style:decimal;padding-left:22px;display:flex;flex-direction:column;gap:6px}
+        .sommaire ol li a{font-size:14px;color:var(--blue);font-weight:500;transition:color .2s}
+        .sommaire ol li a:hover{color:var(--blue-dark)}
+
+        /* Article body */
+        .article-body{display:flex;flex-direction:column;gap:20px}
+        .article-body p{font-size:15px;line-height:1.8;color:var(--text-secondary)}
+        .article-body p strong{color:var(--text);font-weight:700}
+        .article-body h2{font-size:20px;font-weight:800;color:var(--text);margin-top:8px;padding-top:16px;border-top:1px solid var(--border)}
+        .article-body ul{padding-left:24px}
+        .article-body li{font-size:15px;line-height:1.8;color:var(--text-secondary);margin-bottom:8px}
+
+        /* Blockquote */
+        .article-quote{padding:20px 24px;background:var(--quote-bg);border-left:4px solid var(--quote-border);border-radius:0 12px 12px 0;font-style:italic;font-size:15px;line-height:1.7;color:var(--text);transition:background .3s}
+
+        /* Product widget */
+        .product-widget{display:flex;align-items:center;gap:16px;padding:18px 20px;background:var(--bg-card);border-radius:14px;transition:background .3s}
+        .product-widget-img{width:56px;height:80px;border-radius:6px;object-fit:cover;flex-shrink:0;box-shadow:0 2px 8px var(--shadow)}
+        .product-widget-info{flex:1;min-width:0}
+        .product-widget-info h3{font-size:15px;font-weight:700;margin-bottom:2px;line-height:1.3}
+        .product-widget-info .pw-author{font-size:12px;color:var(--text-muted)}
+        .product-widget-info .pw-publisher{font-size:12px;color:var(--text-muted)}
+        .product-widget-info .pw-price{font-size:18px;font-weight:800;color:var(--blue);margin-top:4px}
+        .product-widget-info .pw-stock{font-size:11px;color:var(--green);font-weight:600}
+        .btn-acheter-full{display:block;width:100%;padding:14px;background:var(--blue);color:#fff;border-radius:10px;font-weight:700;font-size:15px;text-align:center;transition:all .2s;box-shadow:0 2px 12px rgba(0,88,163,.25);margin-top:12px}
+        .btn-acheter-full:hover{background:var(--blue-dark);transform:translateY(-1px)}
+        .btn-comparer{display:block;width:100%;padding:12px;border:1.5px solid var(--border-tag);border-radius:10px;font-weight:600;font-size:14px;text-align:center;color:var(--text-secondary);transition:all .2s;margin-top:8px}
+        .btn-comparer:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-light)}
+
+        /* Sidebar */
+        .sidebar{display:flex;flex-direction:column;gap:24px;position:sticky;top:80px}
+        .sidebar-card{background:var(--bg-card);border-radius:14px;padding:20px;transition:background .3s}
+        .sidebar-card h3{font-size:15px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+        .sidebar-card h3 .icon{font-size:16px}
+
+        /* Rubrique links */
+        .rubrique-links{display:flex;flex-direction:column;gap:0}
+        .rubrique-link{padding:10px 0;border-bottom:1px solid var(--border);font-size:13px;color:var(--blue);font-weight:500;transition:all .2s;display:flex;align-items:center;gap:6px}
+        .rubrique-link:last-child{border-bottom:none}
+        .rubrique-link:hover{color:var(--blue-dark);padding-left:4px}
+        .rubrique-link::before{content:'→';font-size:11px;color:var(--text-muted)}
+
+        /* Newsletter sidebar */
+        .newsletter-sidebar p{font-size:13px;color:var(--text-secondary);margin-bottom:12px}
+        .newsletter-sidebar input{width:100%;padding:10px 14px;border:1.5px solid var(--border-tag);border-radius:8px;font-size:14px;font-family:inherit;background:var(--bg);color:var(--text);margin-bottom:8px;transition:border-color .3s}
+        .newsletter-sidebar input:focus{outline:none;border-color:var(--blue)}
+        .newsletter-sidebar button{width:100%;padding:12px;background:var(--blue);color:#fff;border:none;border-radius:8px;font-weight:700;font-size:14px;cursor:pointer;transition:all .2s;font-family:inherit}
+        .newsletter-sidebar button:hover{background:var(--blue-dark)}
+
+        /* Reco card */
+        .reco-card{text-align:center}
+        .reco-card img{width:140px;height:200px;object-fit:cover;border-radius:10px;margin:0 auto 12px;box-shadow:0 4px 16px var(--shadow-lg)}
+        .reco-card h4{font-size:15px;font-weight:700;margin-bottom:4px}
+        .reco-card .reco-author{font-size:12px;color:var(--text-muted);margin-bottom:6px}
+        .reco-card .reco-price{font-size:18px;font-weight:800;color:var(--blue);margin-bottom:10px}
+        .reco-card .btn-reco{display:block;padding:12px 20px;background:var(--blue);color:#fff;border-radius:10px;font-weight:700;font-size:14px;transition:all .2s}
+        .reco-card .btn-reco:hover{background:var(--blue-dark);transform:translateY(-1px)}
+
+        /* Reading progress */
+        .reading-progress{position:fixed;top:0;left:0;height:3px;background:var(--blue);z-index:200;width:0;transition:width .1s linear}
+
+        /* FAQ */
+        .faq-section{padding:48px 40px;background:var(--bg-alt);transition:background .3s}
+        .faq-section h2{font-size:22px;font-weight:700;margin-bottom:28px;text-align:center}
+        .faq-list{max-width:800px;margin:0 auto}
+        .faq-item{border-bottom:1px solid var(--border);padding:18px 0}
+        .faq-question{font-size:15px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--text);transition:color .2s}
+        .faq-question:hover{color:var(--blue)}
+        .faq-question::after{content:'+';font-size:22px;font-weight:300;color:var(--text-muted);flex-shrink:0;transition:transform .3s,color .3s}
+        .faq-item.open .faq-question::after{transform:rotate(45deg);color:var(--blue)}
+        .faq-answer{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .4s ease}
+        .faq-item.open .faq-answer{max-height:280px;padding-top:14px}
+        .faq-answer p{font-size:14px;color:var(--text-secondary);line-height:1.7}
+
+        /* Footer */
+        .footer{padding:32px 40px;background:#111;color:#fff;text-align:center}
+        .footer p{font-size:13px;color:#777}.footer a{color:#999;transition:color .2s}.footer a:hover{color:#fff}
+
+        /* Sticky CTA mobile */
+        .sticky-buy{display:none;position:fixed;bottom:0;left:0;right:0;z-index:90;padding:12px 20px;padding-bottom:calc(12px + env(safe-area-inset-bottom));background:var(--header-bg);border-top:1px solid var(--border);backdrop-filter:blur(12px)}
+        .sticky-buy a{display:block;text-align:center;padding:14px 24px;background:var(--blue);color:#fff;border-radius:12px;font-weight:700;font-size:15px;box-shadow:0 2px 12px rgba(0,88,163,.3)}
+
+        /* Focus */
+        *:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:4px}
+
+        /* Responsive */
+        @media(max-width:1024px){
+            .content-layout{grid-template-columns:1fr;gap:32px}
+            .sidebar{position:static;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+        }
+        @media(max-width:768px){
+            .header{padding:12px 16px}.header-nav{display:none}.hamburger{display:flex}
+            .sticky-buy{display:block}
+            .breadcrumb{padding:10px 16px;font-size:12px}
+            .article-header{padding:8px 16px 16px}
+            .article-header h1{font-size:22px}
+            .article-hero{margin:0 16px 20px;max-height:280px;border-radius:10px}
+            .content-layout{padding:0 16px 36px;gap:28px}
+            .sidebar{grid-template-columns:1fr}
+            .faq-section,.footer{padding-left:16px;padding-right:16px}
+            .footer{padding-bottom:100px}
+            .reveal{opacity:1!important;transform:translateY(0)!important}
+        }
+        @media(max-width:480px){
+            .logo-img{height:28px}
+            .article-header h1{font-size:20px}
+            .article-hero{max-height:220px;margin:0 12px 16px}
+            .article-body p{font-size:14px}
+            .article-body h2{font-size:18px}
+            .article-quote{padding:16px 18px;font-size:14px}
+            .product-widget{flex-direction:column;align-items:flex-start;gap:12px}
+            .product-widget-img{width:100%;height:140px;border-radius:10px}
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Article","headline":"C'est de la Tomb ! Lara Croft revient sur PS5 et Switch","author":{"@type":"Organization","name":"Carrefour Cult'"},"publisher":{"@type":"Organization","name":"Carrefour Cult'","url":"https://www.carrefour.fr/cult"},"datePublished":"2026-03-18","dateModified":"2026-03-18","image":"../assets/images/hero-tomb-raider.png","mainEntityOfPage":"https://www.carrefour.fr/cult/articles/tomb-raider-remaster-ps5-switch"}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Cult'","item":"https://www.carrefour.fr/cult"},{"@type":"ListItem","position":2,"name":"Gaming","item":"https://www.carrefour.fr/cult/gaming"},{"@type":"ListItem","position":3,"name":"Tests","item":"https://www.carrefour.fr/cult/gaming/tests"},{"@type":"ListItem","position":4,"name":"C'est de la Tomb !","item":"https://www.carrefour.fr/cult/articles/tomb-raider-remaster-ps5-switch"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Product","name":"Tomb Raider I-III Remastered","publisher":"Aspyr","datePublished":"2026-03-18","offers":{"@type":"Offer","price":"39.99","priceCurrency":"EUR","availability":"https://schema.org/InStock","seller":{"@type":"Organization","name":"Carrefour"}}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+        {"@type":"Question","name":"Quels jeux Tomb Raider sont inclus dans le remaster ?","acceptedAnswer":{"@type":"Answer","text":"Le coffret inclut les trois premiers opus : Tomb Raider (1996), Tomb Raider II (1997) et Tomb Raider III (1998), entièrement remasterisés avec des graphismes modernisés et des contrôles améliorés."}},
+        {"@type":"Question","name":"Sur quelles consoles sont disponibles les remasters ?","acceptedAnswer":{"@type":"Answer","text":"Les remasters sont disponibles sur PlayStation 5, Nintendo Switch, Xbox Series X/S et PC. Carrefour propose les éditions physiques PS5 et Switch en magasin et sur carrefour.fr."}},
+        {"@type":"Question","name":"Où acheter Tomb Raider Remastered au meilleur prix ?","acceptedAnswer":{"@type":"Answer","text":"Tomb Raider Remastered est disponible chez Carrefour en magasin et en ligne. Pensez à consulter les coupons personnalisés dans l'application Carrefour Cult' pour bénéficier de réductions exclusives."}},
+        {"@type":"Question","name":"Le remaster propose-t-il de nouvelles fonctionnalités ?","acceptedAnswer":{"@type":"Answer","text":"Oui : graphismes modernisés avec bascule instantanée ancien/nouveau rendu, trophées et succès, maniabilité améliorée en option, mode photo, et prise en charge des fonctionnalités DualSense sur PS5."}},
+        {"@type":"Question","name":"Ce remaster est-il adapté aux nouveaux joueurs ?","acceptedAnswer":{"@type":"Answer","text":"Absolument. Le schéma de contrôle moderne rend l'expérience accessible à tous. C'est une excellente porte d'entrée pour découvrir les origines de Lara Croft tout en profitant d'un confort de jeu actuel."}}
+    ]}
+    </script>
+</head>
+<body>
+
+<div class="reading-progress" id="readingBar"></div>
+<a href="#main-content" class="skip-link">Aller au contenu principal</a>
+<div class="page-wrapper">
+
+    <!-- HEADER -->
+    <header class="header" role="banner">
+        <div class="header-left">
+            <a href="../index.html" class="logo" aria-label="Carrefour Cult' - Accueil">
+                <img src="../assets/logos/logo-cult.png" alt="Cult'" class="logo-img" width="107" height="40">
+            </a>
+            <nav class="header-nav" aria-label="Navigation principale">
+                <a href="../index.html#section-livres-hub">Livres</a>
+                <a href="../index.html" class="active">Gaming</a>
+                <a href="../index.html#section-films-hub">Films</a>
+                <a href="../index.html#section-musique">Musique</a>
+            </nav>
+        </div>
+        <div class="header-right">
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Changer le thème">
+                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <a href="../index.html">Cult'</a><span>></span>
+        <a href="../index.html">Gaming</a><span>></span>
+        C'est de la Tomb !
+    </nav>
+
+    <!-- ARTICLE HEADER -->
+    <div class="article-header" id="main-content">
+        <div class="article-badges reveal">
+            <span class="badge badge-games">Jeux vidéos</span>
+            <span class="badge badge-test">Test</span>
+        </div>
+        <h1 class="reveal">C'est de la Tomb ! Lara Croft revient en force sur PS5 et Switch</h1>
+        <p class="article-meta reveal">Par <strong>la rédaction Cult'</strong> · Mars 2026 · 8 min de lecture</p>
+    </div>
+
+    <!-- HERO IMAGE -->
+    <div class="article-hero reveal">
+        <img src="../assets/images/hero-tomb-raider.png" alt="Lara Croft - Tomb Raider Remastered sur PS5 et Switch" loading="eager" width="900" height="500" decoding="async">
+    </div>
+
+    <!-- CONTENT LAYOUT -->
+    <div class="content-layout">
+
+        <!-- MAIN -->
+        <main class="article-body">
+
+            <!-- SOMMAIRE -->
+            <nav class="sommaire reveal" aria-label="Sommaire de l'article">
+                <h2>Sommaire</h2>
+                <ol>
+                    <li><a href="#s1">Un remaster qui respecte l'original</a></li>
+                    <li><a href="#s2">Trois aventures mythiques dans un seul coffret</a></li>
+                    <li><a href="#s3">Une maniabilité modernisée</a></li>
+                    <li><a href="#s4">Pourquoi acheter chez Carrefour ?</a></li>
+                    <li><a href="#s5">Notre verdict</a></li>
+                </ol>
+            </nav>
+
+            <!-- INTRO -->
+            <p class="reveal"><strong>Le jeu vidéo sait ce qu'il doit à Lara Croft.</strong> Depuis 1996, l'aventurière britannique a marqué des générations de joueurs avec ses explorations de tombeaux, ses énigmes retorses et son sens de l'action. Aujourd'hui, les trois premiers épisodes de la saga Tomb Raider reviennent dans des versions entièrement remasterisées sur PS5 et Nintendo Switch, et le résultat est à la hauteur de la légende.</p>
+
+            <!-- SECTION 1 -->
+            <h2 id="s1" class="reveal">Un remaster qui respecte l'original tout en le modernisant</h2>
+
+            <p class="reveal">La grande réussite de ce remaster tient dans son équilibre. Les développeurs d'Aspyr ont choisi de ne pas dénaturer les jeux originaux, mais de les sublimer avec des graphismes entièrement refaits. Chaque texture, chaque environnement et chaque modèle de personnage a été repensé pour coller aux standards actuels, tout en conservant le level design et le gameplay qui ont fait la renommée de la série.</p>
+
+            <p class="reveal">La fonctionnalité la plus appréciable reste sans doute la possibilité de basculer instantanément entre les graphismes d'origine et la version remasterisée. Un simple appui sur une touche permet de mesurer le chemin parcouru en trente ans de jeu vidéo.</p>
+
+            <!-- SECTION 2 -->
+            <h2 id="s2" class="reveal">Trois aventures mythiques dans un seul coffret</h2>
+
+            <p class="reveal">Ce coffret réunit les trois premières aventures de Lara Croft, chacune offrant une expérience unique. Le premier Tomb Raider pose les bases de l'exploration et reste un monument du game design. Tomb Raider II amplifie la formule avec des environnements plus variés, de Venise à la Grande Muraille de Chine. Tomb Raider III, quant à lui, propose une structure plus ouverte qui laisse au joueur le choix de l'ordre des niveaux.</p>
+
+            <p class="reveal">Au total, c'est plus de 50 heures de jeu qui attendent les joueurs, le tout pour un prix très raisonnable. Une proposition de valeur difficilement égalable dans le paysage actuel.</p>
+
+            <!-- WIDGET PRODUIT 1 -->
+            <div class="reveal">
+                <div class="product-widget">
+                    <img class="product-widget-img" src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=112&h=160&fit=crop&q=80" alt="Coffret Tomb Raider I-III Remastered PS5" loading="lazy" decoding="async">
+                    <div class="product-widget-info">
+                        <h3>Tomb Raider I-III Remastered</h3>
+                        <p class="pw-author">Aspyr</p>
+                        <p class="pw-publisher">PS5 · Édition physique</p>
+                        <p class="pw-price">39,99 €</p>
+                        <p class="pw-stock">En stock chez Carrefour</p>
+                    </div>
+                </div>
+                <a href="#" class="btn-acheter-full">Acheter chez Carrefour →</a>
+            </div>
+
+            <!-- SECTION 3 -->
+            <h2 id="s3" class="reveal">Une maniabilité modernisée pour les joueurs d'aujourd'hui</h2>
+
+            <p class="reveal">Les contrôles originaux de Tomb Raider étaient célèbres pour leur rigidité, avec le fameux déplacement sur grille et les sauts millimétrés. Le remaster propose un schéma de contrôle moderne en option, avec un stick analogique fluide et une caméra libre, rendant l'expérience bien plus accessible aux joueurs d'aujourd'hui.</p>
+
+            <p class="reveal">Les puristes ne sont pas oubliés puisqu'il est possible de conserver les contrôles d'origine, dits "tank controls", pour retrouver les sensations exactes de l'époque. Un choix judicieux qui devrait satisfaire tout le monde.</p>
+
+            <blockquote class="article-quote reveal">
+                Le remaster Tomb Raider est la preuve qu'on peut moderniser un classique sans le trahir. Chaque détail témoigne d'un respect profond pour l'œuvre originale.
+            </blockquote>
+
+            <!-- SECTION 4 -->
+            <h2 id="s4" class="reveal">Pourquoi acheter Tomb Raider Remastered chez Carrefour ?</h2>
+
+            <p class="reveal">Carrefour propose Tomb Raider I-III Remastered dans ses rayons jeux vidéo et sur carrefour.fr, avec des avantages exclusifs pour les clients fidèles :</p>
+
+            <ul class="reveal">
+                <li>Prix compétitifs en magasin et en ligne</li>
+                <li>Coupons de réduction personnalisés via l'application Carrefour Cult'</li>
+                <li>Livraison à domicile ou retrait en magasin en 1h</li>
+                <li>Disponible en édition PS5, Switch et Xbox Series</li>
+            </ul>
+
+            <!-- WIDGET PRODUIT 2 -->
+            <div class="reveal">
+                <div class="product-widget">
+                    <img class="product-widget-img" src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=112&h=160&fit=crop&q=80" alt="Tomb Raider Definitive Survivor Trilogy PS5" loading="lazy" decoding="async">
+                    <div class="product-widget-info">
+                        <h3>Tomb Raider: Definitive Survivor Trilogy</h3>
+                        <p class="pw-author">Crystal Dynamics</p>
+                        <p class="pw-publisher">PS5 · Édition complète</p>
+                        <p class="pw-price">29,99 €</p>
+                        <p class="pw-stock">Click & Collect disponible</p>
+                    </div>
+                </div>
+                <a href="#" class="btn-acheter-full">Acheter chez Carrefour →</a>
+                <a href="#" class="btn-comparer">Comparer les éditions</a>
+            </div>
+
+            <!-- SECTION 5 -->
+            <h2 id="s5" class="reveal">Notre verdict : un retour triomphal pour Lara Croft</h2>
+
+            <p class="reveal">Tomb Raider I-III Remastered est bien plus qu'une simple couche de peinture sur des jeux vieillissants. C'est un travail de restauration minutieux qui permet à une nouvelle génération de découvrir pourquoi Lara Croft est devenue une icône du jeu vidéo. Les graphismes modernisés, les contrôles revus et la qualité du coffret en font un achat incontournable pour tout amateur d'aventure.</p>
+
+            <p class="reveal">Que vous soyez un fan de la première heure ou un nouveau venu dans l'univers Tomb Raider, ce remaster mérite une place dans votre ludothèque. Disponible dès maintenant chez Carrefour.</p>
+
+        </main>
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" aria-label="Contenus complémentaires">
+
+            <!-- Produit widget principal -->
+            <div class="sidebar-card reveal">
+                <div class="product-widget" style="flex-direction:column;align-items:center;gap:12px;padding:16px">
+                    <img class="product-widget-img" src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=140&h=180&fit=crop&q=80" alt="Tomb Raider I-III Remastered PS5" loading="lazy" decoding="async" style="width:100%;height:auto">
+                    <div class="product-widget-info" style="width:100%;text-align:center">
+                        <h3>Tomb Raider I-III Remastered</h3>
+                        <p class="pw-author">PS5</p>
+                        <p class="pw-price">39,99 €</p>
+                    </div>
+                </div>
+                <a href="#" class="btn-acheter-full">Acheter chez Carrefour →</a>
+            </div>
+
+            <!-- Rubriques -->
+            <div class="sidebar-card reveal">
+                <h3><span class="icon">🎮</span> Rubriques Gaming</h3>
+                <div class="rubrique-links">
+                    <a href="#" class="rubrique-link">Jeux vidéos</a>
+                    <a href="#" class="rubrique-link">Tests & Avis</a>
+                    <a href="#" class="rubrique-link">Bons plans</a>
+                    <a href="#" class="rubrique-link">Nouveautés</a>
+                </div>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="sidebar-card newsletter-sidebar reveal">
+                <h3><span class="icon">📬</span> Newsletter Gaming Cult'</h3>
+                <p>Tests, actualités et bons plans chaque semaine</p>
+                <form onsubmit="event.preventDefault();this.querySelector('button').textContent='✓ Inscrit !';this.querySelector('button').style.background='#10b981';">
+                    <input type="email" placeholder="votre@email.com" aria-label="Votre email" required>
+                    <button type="submit">S'inscrire</button>
+                </form>
+            </div>
+
+            <!-- Reco card -->
+            <div class="sidebar-card reco-card reveal">
+                <h3 style="justify-content:center"><span class="icon">💡</span> Vous aimerez aussi</h3>
+                <img src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=280&h=400&fit=crop&q=80" alt="Tomb Raider Definitive Survivor Trilogy" loading="lazy" decoding="async">
+                <h4>Definitive Survivor Trilogy</h4>
+                <p class="reco-author">Crystal Dynamics · PS5</p>
+                <p class="reco-price">29,99 €</p>
+                <a href="#" class="btn-reco">Voir chez Carrefour →</a>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq-section">
+        <h2 class="reveal">Questions fréquentes</h2>
+        <div class="faq-list">
+            <div class="faq-item reveal">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Quels jeux Tomb Raider sont inclus dans le remaster ?</div>
+                <div class="faq-answer"><p>Le coffret inclut les trois premiers opus : Tomb Raider (1996), Tomb Raider II (1997) et Tomb Raider III (1998), entièrement remasterisés avec des graphismes modernisés et des contrôles améliorés.</p></div>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Sur quelles consoles sont disponibles les remasters ?</div>
+                <div class="faq-answer"><p>Les remasters sont disponibles sur PlayStation 5, Nintendo Switch, Xbox Series X/S et PC. Carrefour propose les éditions physiques PS5 et Switch en magasin et sur carrefour.fr.</p></div>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Où acheter Tomb Raider Remastered au meilleur prix ?</div>
+                <div class="faq-answer"><p>Tomb Raider Remastered est disponible chez Carrefour en magasin et en ligne. Pensez à consulter les coupons personnalisés dans l'application Carrefour Cult' pour bénéficier de réductions exclusives.</p></div>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Le remaster propose-t-il de nouvelles fonctionnalités ?</div>
+                <div class="faq-answer"><p>Oui : graphismes modernisés avec bascule instantanée ancien/nouveau rendu, trophées et succès, maniabilité améliorée en option, mode photo, et prise en charge des fonctionnalités DualSense sur PS5.</p></div>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Ce remaster est-il adapté aux nouveaux joueurs ?</div>
+                <div class="faq-answer"><p>Absolument. Le schéma de contrôle moderne rend l'expérience accessible à tous. C'est une excellente porte d'entrée pour découvrir les origines de Lara Croft tout en profitant d'un confort de jeu actuel.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer" role="contentinfo">
+        <p>&copy; 2026 Carrefour Cult' &mdash; Tous droits réservés | <a href="#">Mentions légales</a> | <a href="#">Politique de confidentialité</a> | <a href="#">CGU</a></p>
+    </footer>
+
+</div>
+
+<!-- Mobile menu -->
+<nav class="mobile-menu" id="mobileMenu" aria-label="Menu mobile">
+    <a href="../index.html" onclick="closeMenu()">Accueil Cult'</a>
+    <a href="../index.html#section-livres-hub" onclick="closeMenu()">Livres</a>
+    <a href="../index.html" onclick="closeMenu()">Gaming</a>
+    <a href="../index.html#section-films-hub" onclick="closeMenu()">Films & Séries</a>
+    <a href="../index.html#section-musique" onclick="closeMenu()">Musique</a>
+</nav>
+
+<!-- Sticky buy CTA mobile -->
+<div class="sticky-buy">
+    <a href="#">🎮 Tomb Raider I-III Remastered — 39,99 €</a>
+</div>
+
+<script>
+function toggleMenu(){const m=document.getElementById('mobileMenu'),h=document.querySelector('.hamburger');m.classList.toggle('open');h.classList.toggle('open');document.body.style.overflow=m.classList.contains('open')?'hidden':''}
+function closeMenu(){document.getElementById('mobileMenu').classList.remove('open');document.querySelector('.hamburger').classList.remove('open');document.body.style.overflow=''}
+function toggleTheme(){const h=document.documentElement;h.setAttribute('data-theme',h.getAttribute('data-theme')==='dark'?'light':'dark')}
+
+// Reading progress bar
+window.addEventListener('scroll',()=>{const h=document.documentElement;const p=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;document.getElementById('readingBar').style.width=p+'%'});
+
+// Smooth scroll sommaire
+document.querySelectorAll('.sommaire a').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
+
+// Reveal
+if('IntersectionObserver' in window){const o=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');o.unobserve(e.target)}})},{threshold:.01,rootMargin:'0px 0px 60px 0px'});document.querySelectorAll('.reveal').forEach(el=>o.observe(el));setTimeout(()=>{document.querySelectorAll('.reveal:not(.visible)').forEach(el=>el.classList.add('visible'))},2500)}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'))}
+
+// FAQ toggle
+document.querySelectorAll('.faq-question').forEach(q=>{q.addEventListener('click',()=>{q.parentElement.classList.toggle('open')})});
+</script>
+
+</body>
+</html>
